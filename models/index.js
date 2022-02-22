@@ -5,10 +5,9 @@ mongoose.connection
   .on("error", (error) => console.log(error));
 
 const User = require("./User");
-
-// Luego de definir los modelos, se pueden establecer relaciones
-// entre los mismos...
+const Tweet = require("./Tweet");
 
 module.exports = {
   User,
+  Tweet,
 };
