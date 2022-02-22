@@ -14,7 +14,7 @@ module.exports = async () => {
       password: "123",
       email: faker.internet.email(),
       bio: "esta es la bio si muy bien :D",
-      avatar: faker.name.lastName(),
+      avatar: faker.image.avatar(),
     });
   }
   await User.create(users);
