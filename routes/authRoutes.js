@@ -1,7 +1,16 @@
 const express = require("express");
-const adminRouter = express.Router();
+const authRouter = express.Router();
+const passport = require("passport");
 
-// Rutas del Admin:
-// ...
+authRouter.get("/", (req, res) => {
+  res.render("login");
+});
 
-module.exports = adminRouter;
+authRouter.post(
+  "/",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+  }),
+);
+module.exports = authRouter;

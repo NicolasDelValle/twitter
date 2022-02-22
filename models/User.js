@@ -8,7 +8,7 @@ const userSchema = new Schema({
   password: String,
   email: String,
   bio: String,
-  image: String,
+  avatar: String,
   tweetList: { type: Schema.Types.ObjectId, ref: "Tweet" },
   following: [],
   followers: [],

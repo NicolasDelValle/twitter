@@ -6,14 +6,15 @@ faker.locale = "es";
 module.exports = async () => {
   const users = [];
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 3; i++) {
     users.push({
       firstname: faker.name.firstName(),
       lastname: faker.name.lastName(),
-      age: faker.datatype.number({
-        min: 15,
-        max: 90,
-      }),
+      username: faker.name.lastName(),
+      password: "123",
+      email: faker.internet.email(),
+      bio: "esta es la bio si muy bien :D",
+      avatar: faker.name.lastName(),
     });
   }
   await User.create(users);

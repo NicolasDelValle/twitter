@@ -19,7 +19,7 @@ app.use(
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-//passport(app);
+passport(app);
 routes(app);
 
 dbInitialSetup(); // Crea tablas e inserta datos de prueba.
