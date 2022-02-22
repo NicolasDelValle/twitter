@@ -11,9 +11,9 @@ const userSchema = new Schema(
     email: String,
     bio: String,
     avatar: String,
-    tweetList: { type: Schema.Types.ObjectId, ref: "Tweet" },
-    following: [],
-    followers: [],
+    tweetList: [{ type: Schema.Types.ObjectId, ref: "Tweet" }],
+    following: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    followers: [{ type: Schema.Types.ObjectId, ref: "User" }],
   },
   { timestamps: true },
 );
