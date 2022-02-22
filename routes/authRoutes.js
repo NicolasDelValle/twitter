@@ -1,16 +1,14 @@
 const express = require("express");
+const authController = require("../controllers/authController");
 const authRouter = express.Router();
-const passport = require("passport");
 
-authRouter.get("/", (req, res) => {
-  res.render("login");
-});
+// falta importar un middleware en el loginController
 
-authRouter.post(
-  "/",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-  }),
-);
+authRouter.get("/registro", authController.showRegistro); // ventana para nuevo usuario
+authRouter.post("/registro", authController.storeRegistro); // guardar registro en BD
+authRouter.get("/login", authController.showLogin); // ventana para logearse
+authRouter.post("/login", authController.login); // chequeo de user + password
+authRouter.get("/logout", authController.logout); // salir
+/* authRouter.get("*", showError404); */
+
 module.exports = authRouter;
