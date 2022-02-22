@@ -5,7 +5,6 @@ const tweetSchema = new Schema(
   {
     content: String,
     user: { type: Schema.Types.ObjectId, ref: "User" },
-    createdAt: Date,
     likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
   },
   { timestamps: true },
