@@ -10,12 +10,11 @@ module.exports = (app) => {
       { usernameField: "username", passwordField: "password" },
       async function verify(username, password, cb) {
         try {
-          const user = await User.find({ username, password });
+          const user = await User.findOne({ username, password });
 
           if (!user) {
             return cb(null, false, { message: "Incorrect email or password." });
           }
-          console.log(user);
           return cb(null, user);
         } catch (error) {
           return cb(error);
@@ -25,11 +24,11 @@ module.exports = (app) => {
   );
 
   passport.serializeUser(function (user, done) {
-    done(null, user.id);
+    done(null, user._id);
   });
 
-  passport.deserializeUser(function (id, done) {
-    User.findById(id)
+  passport.deserializeUser(function (_id, done) {
+    User.findById(_id)
       .then((user) => {
         done(null, user); // Usuario queda disponible en req.user.
       })
