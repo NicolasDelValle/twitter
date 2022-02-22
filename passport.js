@@ -15,6 +15,9 @@ module.exports = (app) => {
           if (!user) {
             return cb(null, false, { message: "Incorrect email or password." });
           }
+          /* if (!(await user.validPassword(password))) {
+            return cb(null, false, { message: "Incorrect username or password" });
+          } */
           return cb(null, user);
         } catch (error) {
           return cb(error);
