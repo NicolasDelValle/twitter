@@ -15,6 +15,6 @@ module.exports = async () => {
       user: autor,
     });
   }
-  await User.create(tweets);
+  await Tweet.create(tweets);
   console.log("[Database] Se corrió el seeder de users.");
 };
