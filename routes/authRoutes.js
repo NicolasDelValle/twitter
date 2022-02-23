@@ -4,6 +4,7 @@ const authRouter = express.Router();
 
 // falta importar un middleware en el loginController
 
+authRouter.get("/", authController.showLandingLogin);
 authRouter.get("/registro", authController.showRegistro); // ventana para nuevo usuario
 authRouter.post("/registro", authController.storeRegistro); // guardar registro en BD
 authRouter.get("/login", authController.showLogin); // ventana para logearse

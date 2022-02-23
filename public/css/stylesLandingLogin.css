@@ -1,0 +1,192 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Roboto", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.button {
+  background: seagreen;
+  padding: 0.5rem 0.5rem;
+  font-size: 1rem;
+  color: seashell;
+  border: none;
+}
+
+.button:hover {
+  background: rgb(59, 61, 63);
+}
+
+#btn-modal {
+  margin: 1rem;
+  height: 3rem;
+  width: 10rem;
+  font-weight: 700;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation-name: abrirmodal;
+  animation-duration: 1s;
+}
+
+.modal-dialog {
+  max-width: 630px;
+}
+
+.modal-content {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.contenido-modal {
+  background-color: #ffffff;
+  margin-top: 10rem;
+  padding: 0.5rem 1.5rem 1rem 1.5rem;
+  width: 45%;
+  height: 40%;
+  box-shadow: 3px 4px 5px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+
+.modal-header,
+.modal-content {
+  border: none;
+}
+
+.btn-close {
+  position: absolute;
+  top: 1.3rem;
+  left: 2rem;
+  color: silver;
+  font-size: 1rem;
+}
+
+#logo-form {
+  position: absolute;
+  top: 1.5rem;
+  right: 19rem;
+  justify-self: center;
+}
+
+.modal-body {
+  padding-left: 0.3rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#btn-x:hover,
+#btn-x:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container {
+  margin: 0;
+  width: 100vw;
+}
+
+.row {
+  width: 100vw;
+}
+
+.col-md-7 {
+  height: 95vh;
+  padding-left: 0;
+}
+
+#banner {
+  width: 94%;
+  height: 100%;
+}
+
+.col-md-5 {
+  margin-left: -3.2rem;
+}
+
+svg.logo {
+  position: absolute;
+  fill: #212529;
+  top: 7rem;
+  height: 150px;
+  width: 150px;
+}
+
+svg.logo-form {
+  fill: #212529;
+  height: 30px;
+  width: 30px;
+}
+
+#btn-login {
+  width: 310px;
+  height: 40px;
+  margin-bottom: 6px;
+  margin-left: 0;
+}
+
+.login {
+  margin-top: 3rem;
+}
+
+#btn-modal {
+  width: 310px;
+  height: 40px;
+  background-color: #ffffff;
+  border-color: #4d4e4e;
+  margin: 0;
+}
+
+#btn-modal:hover {
+  background-color: #dc354626;
+}
+
+.label-btn {
+  width: 310px;
+  font-size: 0.7rem;
+  margin: 16px;
+  margin-top: 0;
+  margin-left: 0;
+  padding-left: 9px;
+}
+
+h1 {
+  font-size: 4.5rem;
+  margin-top: 13.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  margin-top: 3rem;
+  margin-bottom: 0.7rem;
+}
+
+.texto {
+  font-size: 1.1rem;
+}
+
+.btn-register {
+  height: 2.8rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+footer {
+  height: 5vh;
+  background-color: #d3d3d3;
+}
