@@ -65,3 +65,15 @@ h1 {
 main {
   height: 95%;
 }
+
+.modal-dialog {
+  max-width: 33%;
+}
+
+.modal-content {
+  width: 100%;
+}
+
+p {
+  color: #d3d3d3;
+}
