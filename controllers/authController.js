@@ -1,6 +1,10 @@
 const { User } = require("../models");
 const passport = require("passport");
 
+async function showLandingLogin(req, res) {
+  res.render("landingLogin");
+}
+
 async function showRegistro(req, res) {
   res.render("register");
 }
@@ -40,6 +44,7 @@ async function logout(req, res, next) {
 }
 
 module.exports = {
+  showLandingLogin,
   showRegistro,
   storeRegistro,
   showLogin,

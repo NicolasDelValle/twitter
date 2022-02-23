@@ -10,14 +10,14 @@ module.exports = (app) => {
       { usernameField: "username", passwordField: "password" },
       async function verify(username, password, cb) {
         try {
-          const user = await User.findOne({ username, password });
+          const user = await User.findOne({ username });
 
           if (!user) {
             return cb(null, false, { message: "Incorrect email or password." });
           }
-          /* if (!(await user.validPassword(password))) {
+          if (!(await user.validPassword(password))) {
             return cb(null, false, { message: "Incorrect username or password" });
-          } */
+          }
           return cb(null, user);
         } catch (error) {
           return cb(error);
