@@ -24,6 +24,8 @@ routes(app);
 
 //dbInitialSetup(); // Crea tablas e inserta datos de prueba.
 
+console.log("http://localhost:3000");
+
 app.listen(APP_PORT, () =>
-  console.log(`\n[Express] Servidor corriendo en el puerto Servidor http://localhost:3000 !\n`),
+  console.log(`\n[Express] Servidor corriendo en el puerto Servidor ${APP_PORT}!\n`),
 );
