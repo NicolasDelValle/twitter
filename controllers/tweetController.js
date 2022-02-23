@@ -14,7 +14,15 @@ async function createTweet(req, res) {
 }
 
 // Remove the specified resource from storage.
-async function destroyTweet(req, res) {}
+async function destroyTweet(req, res) {
+  try {
+    await Tweet.findByIdAndDelete(req.params.id);
+    res.redirect("/home");
+  } catch (error) {
+    console.log(error);
+    res.status(502).json({ message: "Ups, algo ha salido mal." });
+  }
+}
 
 // Otros handlers...
 // ...

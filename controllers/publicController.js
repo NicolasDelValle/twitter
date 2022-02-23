@@ -1,7 +1,7 @@
 const { Tweet } = require("../models");
 
 async function showHome(req, res) {
-  const tweets = await Tweet.find();
+  const tweets = await Tweet.find().populate("user");
   res.render("home", { page: "home", tweets });
 }
 

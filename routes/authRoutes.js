@@ -10,7 +10,7 @@ authRouter.get("/registro", isAuthUnlogged, authController.showRegistro); // ven
 authRouter.post("/registro", isAuthUnlogged, authController.storeRegistro); // guardar registro en BD
 authRouter.get("/login", isAuthUnlogged, authController.showLogin); // ventana para logearse
 authRouter.post("/login", isAuthUnlogged, authController.login); // chequeo de user + password
-authRouter.get("/logout", isAuthUnlogged, authController.logout); // salir
+authRouter.get("/logout", authController.logout); // salir
 /* authRouter.get("*", showError404); */
 
 module.exports = authRouter;

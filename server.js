@@ -7,6 +7,7 @@ const APP_PORT = process.env.APP_PORT || 3000;
 const app = express();
 const session = require("express-session");
 const passport = require("./passport");
+const methodOverride = require("method-override");
 
 app.use(
   session({
@@ -20,6 +21,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 passport(app);
+app.use(methodOverride("_method"));
 routes(app);
 
 dbInitialSetup(); // Crea tablas e inserta datos de prueba.

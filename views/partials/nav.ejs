@@ -27,11 +27,10 @@
       <% if(page==="profile" ){ %>
         <div class="d-flex flex-column align-items-center border-top pt-2">
           <div class="d-flex flex-column align-items-center p-3">
-            <img src="img/ungato.jpg" alt="" width="170" height="170" class="rounded-circle" />
+            <img src="<%= user.avatar %>" alt="" width="170" height="170" class="rounded-circle" />
             <div class="d-flex flex-column mx-2 lh-1">
               <span class="p-0">
-                <%= user.firstname %>
-                  <%= user.lastname %>
+                <%= user.firstname + " " + user.lastname %>
               </span>
               <span class="p-0 text-secondary" style="font-size: small">@<%= user.username %></span>
             </div>
@@ -59,10 +58,12 @@
             <a href="/profile"
               class="d-flex align-items-center justify-content-between text-white text-decoration-none p-1">
               <div class="d-flex flex-row align-items-center">
-                <img src="img/ungato.jpg" alt="" width="50" height="50" class="rounded-circle" />
+                <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
                 <div class="d-flex flex-column mx-2 lh-1">
-                  <span class="p-0"> JON EL GATO </span>
-                  <span class="p-0 text-secondary" style="font-size: small">@JONDAKAT</span>
+                  <span class="p-0">
+                    <%= user.firstname + " " + user.lastname %>
+                  </span>
+                  <span class="p-0 text-secondary" style="font-size: small">@<%= user.username %></span>
                 </div>
               </div>
             </a>
