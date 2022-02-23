@@ -10,7 +10,7 @@ module.exports = async () => {
     users.push({
       firstname: faker.name.firstName(),
       lastname: faker.name.lastName(),
-      username: faker.name.lastName(),
+      username: "user" + i,
       password: "123",
       email: faker.internet.email(),
       bio: "esta es la bio si muy bien :D",
