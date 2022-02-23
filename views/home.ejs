@@ -39,6 +39,7 @@
           <form id="tweetForm" action="/tweet" method="post">
             <textarea rows="5" name="content" class="form-control" id="content" type="text"
               placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
+
         </div>
         <!-- Submit Button -->
         <div class="modal-footer border-0">
@@ -47,8 +48,17 @@
           </button>
           </form>
         </div>
-        <!--Side Bar Trends-->
+        <div>
+          <% for(const tweet of tweets) {%>
+            <article class="border">
+              <p>
+                <%= tweet.content %>
+              </p>
+            </article>
+            <% } %>
+        </div>
       </div>
+      <!--Side Bar Trends-->
       <%- include("partials/sideBarTrends") %>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

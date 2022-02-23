@@ -1,7 +1,8 @@
-const { Article } = require("../models");
+const { Tweet } = require("../models");
 
 async function showHome(req, res) {
-  res.render("home", { page: "home" });
+  const tweets = await Tweet.find();
+  res.render("home", { page: "home", tweets });
 }
 
 async function showExplorer(req, res) {
