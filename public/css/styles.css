@@ -48,6 +48,14 @@ svg.logo-form {
   margin-bottom: 0.5rem;
 }
 
+svg.logo-nav {
+  fill: #e0e0e0;
+  height: 30px;
+  width: 30px;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
 .contenido-card {
   margin-top: 2.4rem;
   padding-bottom: 1rem;
@@ -64,4 +72,21 @@ h1 {
 
 main {
   height: 95%;
+}
+
+.modal-dialog {
+  max-width: 33%;
+}
+
+.modal-content {
+  width: 100%;
+}
+
+p {
+  color: #d3d3d3;
+}
+
+.side-bar-r,
+.side-bar-l {
+  width: 25%;
 }
