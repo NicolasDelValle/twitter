@@ -2,7 +2,7 @@
   <div class="d-flex flex-column p-3 text-white position-sticky top-0">
     <a href="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none fs-4"><i
         class="bi bi-twitter mx-3"></i></a>
-    <% if(!user){ %>
+    <% if(user){ %>
       <ul class="nav nav-pills flex-column fs-4 pb-2">
         <li class="nav-item">
           <a href="/home" class="nav-link text-white">
@@ -66,12 +66,13 @@
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="/logout">Log out</a></li>
             </ul>
           </div>
           <% } %>
 
-            <button type="button" class="btn btn-danger m-2 p-2 rounded-pill">Twittear</button>
+            <button id="btn-modal" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              class="btn btn-danger btn-modal m-2 p-2 rounded-pill">Twittear</button>
             <!--MENU CUANDO ESTA OFFLINE-->
             <% } else{%>
               <ul class="nav nav-pills flex-column mb-auto fs-4 pb-2">
