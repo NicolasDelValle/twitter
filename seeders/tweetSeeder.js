@@ -9,10 +9,12 @@ module.exports = async () => {
   const tweets = [];
 
   for (let i = 0; i < 3; i++) {
-    /* const autor = await User.find */
+    const random = faker.datatype.number({ min: 0, max: 2 });
+    const user = await User.findOne().skip(random);
+
     tweets.push({
-      content: faker.lorem.paragraphs(10),
-      user: autor,
+      content: faker.lorem.paragraphs(3),
+      user: user,
     });
   }
   await Tweet.create(tweets);
