@@ -15,7 +15,68 @@
     <link href="/public/styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div class="container"></div>
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
+      <a
+        href="/"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+      ></a>
+
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="" class="nav-link active" aria-current="page">Inicio</a>
+        </li>
+        <li>
+          <a href="" class="nav-link text-white">Explorar</a>
+        </li>
+        <li>
+          <a href="" class="nav-link text-white">Notificaciones</a>
+        </li>
+        <li>
+          <a href="" class="nav-link text-white">Mensajes</a>
+        </li>
+        <li>
+          <a href="" class="nav-link text-white">Perfil</a>
+        </li>
+        <li>
+          <a href="" class="nav-link text-white">Más opciones</a>
+        </li>
+        <button type="button" class="btn btn-primary btn-lg">Twittear</button>
+      </ul>
+      <div class="dropdown">
+        <a
+          href=""
+          class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://github.com/mdo.png"
+            alt=""
+            width="32"
+            height="32"
+            class="rounded-circle me-2"
+          />
+          <strong>Username</strong>
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-dark text-small shadow show"
+          aria-labelledby="dropdownUser1"
+          style="
+            position: absolute;
+            inset: auto auto 0px 0px;
+            margin: 0px;
+            transform: translate(0px, -34px);
+          "
+        >
+          <li>
+            <a href="" class="dropdown-item">Agregar..</a>
+          </li>
+          <li>
+            <a href="" class="dropdown-item">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <!-- JavaScript Bundle with Popper -->
     <script
