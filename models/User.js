@@ -8,7 +8,11 @@ const userSchema = new Schema(
     lastname: String,
     username: String,
     password: String,
-    email: String,
+    email: {
+      type: String,
+      required: true,
+      lowercase: true,
+    },
     bio: String,
     avatar: String,
     tweetList: [{ type: Schema.Types.ObjectId, ref: "Tweet" }],
