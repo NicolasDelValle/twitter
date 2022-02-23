@@ -3,7 +3,7 @@ const { showHome, showExplorer, showProfile } = require("../controllers/publicCo
 const publicRouter = express.Router();
 const isAuth = require("../middlewares/isAuth");
 
-publicRouter.get("/", showHome);
+publicRouter.get("/home", showHome);
 publicRouter.get("/explorer", showExplorer);
 publicRouter.get("/user", showProfile);
 /* publicRouter.get("/:id", publicController.showProfile); */
