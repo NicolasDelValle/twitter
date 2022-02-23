@@ -16,6 +16,7 @@ const userSchema = new Schema(
     bio: String,
     avatar: String,
     tweets: [{ type: Schema.Types.ObjectId, ref: "Tweet" }],
+    //likes: [{ type: Schema.Types.ObjectId, ref: "Tweet" }],
     following: [{ type: Schema.Types.ObjectId, ref: "User" }],
     followers: [{ type: Schema.Types.ObjectId, ref: "User" }],
   },
@@ -25,7 +26,7 @@ const userSchema = new Schema(
 userSchema.pre("save", async function (next) {
   const user = this;
   if (!user.isModified("password")) return next();
-  user.password = await bcrypt.hash(user.password, 10);
+  user.password = await bcrypt.hash(user.password, 7);
   next();
 });
 
@@ -34,6 +35,8 @@ userSchema.methods.validPassword = async function (password) {
 };
 
 const User = mongoose.model("User", userSchema);
+
+module.exports = User;
 
 /* UserSchema.pre('save', function(next) {
   const user = this;
@@ -60,5 +63,3 @@ const User = mongoose.model("User", userSchema);
     user.password = await bcrypt.hash(user.password, 10);
   }
 }); */
-
-module.exports = User;
