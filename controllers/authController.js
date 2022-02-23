@@ -10,21 +10,17 @@ async function showRegistro(req, res) {
 }
 
 async function storeRegistro(req, res) {
-  const [user, created] = await User.findOrCreate({
-    where: { email: req.body.email },
-    defaults: {
-      email: req.body.email,
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      password: req.body.password,
-    },
+  const user = new User({
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    avatar: req.body.avatar,
+    bio: req.body.bio,
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
   });
-
-  if (created) {
-    req.login(user, () => res.redirect("/"));
-  } else {
-    res.redirect("back");
-  }
+  user.save();
+  res.redirect("/home");
 }
 
 async function showLogin(req, res) {
