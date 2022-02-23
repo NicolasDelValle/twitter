@@ -190,3 +190,7 @@ footer {
   height: 5vh;
   background-color: #d3d3d3;
 }
+
+.main {
+  height: 100%;
+}

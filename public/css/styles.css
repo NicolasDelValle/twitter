@@ -1,11 +1,7 @@
 /* Colocar aquí CSS "propio" */
-html {
-  height: 100%;
-}
 body {
   font-family: "Roboto", sans-serif;
   font-family: "Ubuntu", sans-serif;
-  height: 100%;
 }
 
 footer {
@@ -89,4 +85,18 @@ p {
 .side-bar-r,
 .side-bar-l {
   width: 25%;
+}
+
+#btn-like:hover {
+  background: #ff08001f;
+  color: #ff0800a1;
+}
+
+#btn-like {
+  border-radius: 50%;
+  color: #ffff;
+}
+
+#btn-destroy {
+  font-weight: 100;
 }
