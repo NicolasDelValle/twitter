@@ -1,11 +1,15 @@
 const { Article } = require("../models");
 
 async function showHome(req, res) {
-  res.render("home");
+  res.render("home", { page: "home" });
+}
+
+async function showExplorer(req, res) {
+  res.render("explorer", { page: "explorer" });
 }
 
 async function showProfile(req, res) {
-  res.render("home");
+  res.render("profile", { page: "profile" });
 }
 
 async function showContact(req, res) {
@@ -21,6 +25,7 @@ async function showAboutUs(req, res) {
 
 module.exports = {
   showHome,
+  showExplorer,
   showProfile,
   showContact,
   showAboutUs,
