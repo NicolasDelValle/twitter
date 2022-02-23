@@ -22,7 +22,7 @@ app.set("view engine", "ejs");
 passport(app);
 routes(app);
 
-//dbInitialSetup(); // Crea tablas e inserta datos de prueba.
+/* dbInitialSetup(); */ // Crea tablas e inserta datos de prueba.
 
 console.log("http://localhost:3000");
 

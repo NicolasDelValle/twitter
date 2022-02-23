@@ -10,7 +10,7 @@ async function showRegistro(req, res) {
 }
 
 async function storeRegistro(req, res) {
-  const user = new User({
+  const user = await new User({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     avatar: req.body.avatar,
