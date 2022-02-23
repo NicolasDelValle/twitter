@@ -5,8 +5,8 @@
       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none fs-4"
       ><i class="bi bi-twitter mx-3"></i
     ></a>
-    <% if(user){ %>
-    <ul class="nav nav-pills flex-column mb-auto fs-4">
+    <% if(!user){ %>
+    <ul class="nav nav-pills flex-column fs-4 pb-2">
       <li class="nav-item">
         <a href="/" class="nav-link text-white">
           <% if(page==="home"){ %>
@@ -23,9 +23,37 @@
       </li>
     </ul>
 
-    <div class="d-flex align-items-center justify-content-between border-top">
+    <% if(page==="profile"){ %>
+    <div class="d-flex flex-column align-items-center border-top pt-2">
+      <div class="d-flex flex-column align-items-center p-3">
+        <img src="img/ungato.jpg" alt="" width="170" height="170" class="rounded-circle" />
+        <div class="d-flex flex-column mx-2 lh-1">
+          <span class="p-0"> JON EL GATO </span>
+          <span class="p-0 text-secondary" style="font-size: small">@JONDAKAT</span>
+        </div>
+      </div>
+
+      <ul class="nav nav-pills d-flex flex-column fs-4 pb-3">
+        <li class="nav-item">
+          <a href="/" class="nav-link text-white">
+            <% if(page==="user/configuration"){ %>
+            <i class="bi bi-gear-fill me-3"></i>Configuraciona <% } else{%>
+            <i class="bi bi-gear me-3"></i>Configuracion <% } %>
+          </a>
+        </li>
+        <li>
+          <a href="/explorer" class="nav-link text-white">
+            <% if(page==="explorer"){ %>
+            <i class="bi bi-people-fill me-3"></i>Explorar <% } else{%>
+            <i class="bi bi-people me-3"></i>Explorar <% } %>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <% } else{%>
+    <div class="d-flex align-items-center justify-content-between border-top pt-2">
       <a
-        href=""
+        href="/user"
         class="d-flex align-items-center justify-content-between text-white text-decoration-none p-1"
       >
         <div class="d-flex flex-row align-items-center">
@@ -51,9 +79,20 @@
         <li><a class="dropdown-item" href="#">Something else here</a></li>
       </ul>
     </div>
+    <% } %>
 
     <button type="button" class="btn btn-danger m-2 p-2 rounded-pill">Twittear</button>
+    <!--MENU CUANDO ESTA OFFLINE-->
     <% } else{%>
+    <ul class="nav nav-pills flex-column mb-auto fs-4 pb-2">
+      <li>
+        <a href="/explorer" class="nav-link text-white">
+          <% if(page==="explorer"){ %>
+          <i class="bi bi-people-fill me-3"></i>Explorar <% } else{%>
+          <i class="bi bi-people me-3"></i>Explorar <% } %>
+        </a>
+      </li>
+    </ul>
     <button type="button" class="btn btn-danger m-2 p-2 rounded-pill">Registrate</button>
     <% } %>
   </div>

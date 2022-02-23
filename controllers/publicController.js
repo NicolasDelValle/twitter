@@ -9,7 +9,7 @@ async function showExplorer(req, res) {
 }
 
 async function showProfile(req, res) {
-  res.render("home");
+  res.render("profile", { page: "profile" });
 }
 
 async function showContact(req, res) {
