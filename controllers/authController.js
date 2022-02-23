@@ -13,7 +13,7 @@ async function storeRegistro(req, res) {
   const user = new User({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
-    avatar: req.body.bio,
+    avatar: req.body.avatar,
     bio: req.body.bio,
     username: req.body.username,
     email: req.body.email,
