@@ -21,12 +21,6 @@ async function storeRegistro(req, res) {
   });
   user.save();
   res.redirect("/home");
-
-  // if (created) {
-  //   req.login(user, () => res.redirect("/"));
-  // } else {
-  //   res.redirect("back");
-  // }
 }
 
 async function showLogin(req, res) {
