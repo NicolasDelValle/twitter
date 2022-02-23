@@ -5,7 +5,6 @@ const { isAuthLogged } = require("../middlewares/isAuth");
 
 tweetRouter.get("/tweet", showTweet);
 tweetRouter.post("/tweet", isAuthLogged, createTweet);
-tweetRouter.delete("/tweet", isAuthLogged, destroyTweet);
-/* publicRouter.get("/:id", publicController.showProfile); */
+tweetRouter.delete("/tweet/:id", isAuthLogged, destroyTweet);
 
 module.exports = tweetRouter;

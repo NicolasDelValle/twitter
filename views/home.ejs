@@ -37,7 +37,7 @@
             <div class="text-white"><i class="bi bi-stars"></i></div>
           </div>
           <form id="tweetForm" action="/tweet" method="post">
-            <textarea rows="5" name="content" class="form-control" id="content" type="text"
+            <textarea rows="5" name="content" class="form-control bg-dark text-white" id="content" type="text"
               placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
 
         </div>
@@ -51,9 +51,36 @@
         <div>
           <% for(const tweet of tweets) {%>
             <article class="border">
-              <p>
-                <%= tweet.content %>
-              </p>
+              <div class="d-flex flex-row justify-content-between">
+                <div class="d-flex flex-row p-3">
+                  <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
+                  <div class="d-flex flex-column mx-2 lh-1">
+                    <div class="d-flex flex-row align-items-center">
+                      <span class="p-0 text-white">
+                        <%= tweet.user.firstname + " " + tweet.user.lastname %>
+                      </span>
+                      <span class="p-0 ps-1 text-secondary" style="font-size: small">@<%= tweet.user.username %></span>
+                    </div>
+                    <p class="pt-2">
+                      <%= tweet.content %>
+                    </p>
+                  </div>
+                </div>
+                <div class="pe-3">
+                  <a class="fs-4 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-three-dots"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark p-0" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                      <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
+                        <button class="btn btn-link btn-sm text-decoration-none text-danger" type="submit">Eliminar<i
+                            class="bi bi-trash"></i></button>
+                      </form>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </article>
             <% } %>
         </div>
