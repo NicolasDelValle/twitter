@@ -24,7 +24,7 @@ passport(app);
 app.use(methodOverride("_method"));
 routes(app);
 
-// dbInitialSetup(); // Crea tablas e inserta datos de prueba.
+dbInitialSetup(); // Crea tablas e inserta datos de prueba.
 
 console.log("http://localhost:3000");
 

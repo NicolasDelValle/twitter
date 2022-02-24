@@ -96,15 +96,20 @@
                     
                       
                     </p> -->
-                  <form id="like" method="POST" action="/tweet/likee/<%= user._id %>">
+                  <form id="like" method="POST" action="/tweet/like/<%= tweet.id  %>">
                     <div class="d-flex justify-content-end">
                       <button
                         id="btn-like"
                         class="btn btn-link btn-sm text-decoration-none pt-1"
                         type="submit"
                       >
+                        <% if(tweet.likes.includes(user._id)){ %>
+                        <i class="bi bi-heart-fill fs-6 mt-4"></i>
+                        <% }else{ %>
                         <i class="bi bi-heart fs-6 mt-4"></i>
+                        <% } %>
                       </button>
+                      <span> total <%= tweet.likes.length %></span>
                     </div>
                   </form>
                 </div>
