@@ -14,7 +14,6 @@ tweetRouter.post("/tweetPage/:id", isAuthLogged, replyTweet);
 
 tweetRouter.post("/tweet", isAuthLogged, createTweet);
 tweetRouter.delete("/tweet/:id", isAuthLogged, destroyTweet);
-
 tweetRouter.post("/tweet/like/:id", isAuthLogged, like);
 
 module.exports = tweetRouter;

@@ -1,4 +1,5 @@
 const { id } = require("date-fns/locale");
+const { links } = require("express/lib/response");
 const { User, Tweet } = require("../models");
 
 // Display the specified resource.
@@ -41,7 +42,17 @@ async function destroyTweet(req, res) {
   }
 }
 
-async function like(req, res) {}
+async function like(req, res) {
+  const tweet = await Tweet.findById(req.params.id);
+  if (!tweet.likes.includes(req.user._id)) {
+    tweet.likes.push(req.user._id);
+    tweet.save();
+  } else {
+    const index = tweet.likes.indexOf(req.user._id);
+    tweet.likes.splice(index);
+    tweet.save();
+  }
+}
 
 // Otros handlers...
 // ...

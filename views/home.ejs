@@ -50,18 +50,47 @@
         </div>
 
         <% for(const tweet of tweets) {%>
-          <article class="border-top tweets">
-            <div class="d-flex flex-row justify-content-between">
-              <a class="text-decoration-none" href="/">
-                <div class="d-flex flex-row p-3">
-                  <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
-                  <div class="d-flex flex-column mx-2 lh-1">
-                    <div class="d-flex flex-row align-items-center">
-                      <span class="p-0 text-white">
-                        <%= tweet.user.firstname + " " + tweet.user.lastname %>
-                      </span>
-                      <span class="p-0 ps-1 text-secondary">@<%= tweet.user.username %>
-                      </span>
+        <article class="border-top tweets">
+          <div class="d-flex flex-row justify-content-between">
+            <a class="text-decoration-none" href="/">
+              <div class="d-flex flex-row p-3">
+                <img
+                  src="<%= tweet.user.avatar %>"
+                  alt=""
+                  width="50"
+                  height="50"
+                  class="rounded-circle"
+                />
+                <div class="d-flex flex-column mx-2 lh-1">
+                  <div class="d-flex flex-row align-items-center">
+                    <span class="p-0 text-white">
+                      <%= tweet.user.firstname + " " + tweet.user.lastname %>
+                    </span>
+                    <span class="p-0 ps-1 text-secondary" style="font-size: small"
+                      >@<%= tweet.user.username %>
+                    </span>
+                  </div>
+                  <a class="text-decoration-none text-white" href="/tweetPage/<%= tweet.id %> "
+                    ><%= tweet.content %></a
+                  >
+                  <!-- <p class="pt-2">
+                    
+                      
+                    </p> -->
+                  <form id="like" method="POST" action="/tweet/like/<%= tweet.id  %>">
+                    <div class="d-flex justify-content-end">
+                      <button
+                        id="btn-like"
+                        class="btn btn-link btn-sm text-decoration-none pt-1"
+                        type="submit"
+                      >
+                        <% if(tweet.likes.includes(user._id)){ %>
+                        <i class="bi bi-heart-fill fs-6 mt-4"></i>
+                        <% }else{ %>
+                        <i class="bi bi-heart fs-6 mt-4"></i>
+                        <% } %>
+                      </button>
+                      <span> total <%= tweet.likes.length %></span>
                     </div>
                     <a class="text-decoration-none text-white mt-2" href="/tweetPage/<%= tweet.id %> ">
                       <%= tweet.content %>
