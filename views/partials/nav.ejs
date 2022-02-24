@@ -1,180 +1,153 @@
 <div class="side-bar-l">
   <div class="d-flex flex-column p-3 text-white position-sticky top-0" style="height: 100vh">
-    <a href="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
-      ><span>
+    <a href="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"><span>
         <svg class="logo-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path
-            d="M416 400V464C416 490.5 394.5 512 368 512H320V464C320 455.2 312.8 448 304 448C295.2 448 288 455.2 288 464V512H224V464C224 455.2 216.8 448 208 448C199.2 448 192 455.2 192 464V512H144C117.5 512 96 490.5 96 464V400C96 399.6 96 399.3 96.01 398.9C37.48 357.8 0 294.7 0 224C0 100.3 114.6 0 256 0C397.4 0 512 100.3 512 224C512 294.7 474.5 357.8 415.1 398.9C415.1 399.3 416 399.6 416 400V400zM160 192C124.7 192 96 220.7 96 256C96 291.3 124.7 320 160 320C195.3 320 224 291.3 224 256C224 220.7 195.3 192 160 192zM352 320C387.3 320 416 291.3 416 256C416 220.7 387.3 192 352 192C316.7 192 288 220.7 288 256C288 291.3 316.7 320 352 320z"
-          />
+            d="M416 400V464C416 490.5 394.5 512 368 512H320V464C320 455.2 312.8 448 304 448C295.2 448 288 455.2 288 464V512H224V464C224 455.2 216.8 448 208 448C199.2 448 192 455.2 192 464V512H144C117.5 512 96 490.5 96 464V400C96 399.6 96 399.3 96.01 398.9C37.48 357.8 0 294.7 0 224C0 100.3 114.6 0 256 0C397.4 0 512 100.3 512 224C512 294.7 474.5 357.8 415.1 398.9C415.1 399.3 416 399.6 416 400V400zM160 192C124.7 192 96 220.7 96 256C96 291.3 124.7 320 160 320C195.3 320 224 291.3 224 256C224 220.7 195.3 192 160 192zM352 320C387.3 320 416 291.3 416 256C416 220.7 387.3 192 352 192C316.7 192 288 220.7 288 256C288 291.3 316.7 320 352 320z" />
         </svg>
       </span>
     </a>
     <% if(user){ %>
-    <ul class="nav nav-pills flex-column fs-5 pb-2">
-      <li class="nav-item">
-        <a href="/home" class="nav-link text-white rounded-pill my-1">
-          <% if(page==="home" ){ %>
-          <div class="d-flex flex-row">
-            <i class="bi bi-house-fill me-3"></i>
-            <p>Inicio</p>
-          </div>
-          <% } else{%>
-          <div class="d-flex flex-row">
-            <i class="bi bi-house me-3"></i>
-            <p>Inicio</p>
-          </div>
-          <% } %>
-        </a>
-      </li>
-      <li>
-        <a href="/explorer" class="nav-link text-white rounded-pill my-1">
-          <% if(page==="explorer" ){ %>
-          <div class="d-flex flex-row">
-            <i class="bi bi-people-fill me-3"></i>
-            <p>Explorar</p>
-          </div>
-          <% } else{%>
-          <div class="d-flex flex-row">
-            <i class="bi bi-people me-3"></i>
-            <p>Explorar</p>
-          </div>
-          <% } %>
-        </a>
-      </li>
-      <li>
-        <a href="/sorry" class="nav-link text-white rounded-pill my-1">
-          <div class="d-flex flex-row">
-            <i class="bi bi-bell me-3"></i>
-            <p>Notificaciones</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="/sorry" class="nav-link text-white rounded-pill my-1">
-          <div class="d-flex flex-row">
-            <i class="bi bi-envelope me-3"></i>
-            <p>Mensajes</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="/sorry" class="nav-link text-white rounded-pill my-1">
-          <div class="d-flex flex-row">
-            <i class="bi bi-bookmark me-3"></i>
-            <p>Guardados</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="/sorry" class="nav-link text-white rounded-pill my-1">
-          <div class="d-flex flex-row">
-            <i class="bi bi-card-text me-3"></i>
-            <p>Listas</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="/profile/<%= user.username %> " class="nav-link text-white rounded-pill my-1">
-          <div class="d-flex flex-row">
-            <i class="bi bi-person me-3"></i>
-            <p>Perfil</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="" class="nav-link text-white rounded-pill my-1">
-          <div class="d-flex flex-row">
-            <i class="bi bi-three-dots me-3"></i>
-            <p>Más opciones</p>
-          </div>
-        </a>
-      </li>
-    </ul>
+      <ul class="nav nav-pills flex-column fs-5 pb-2">
+        <li class="nav-item">
+          <a href="/home" class="nav-link text-white rounded-pill my-1">
+            <% if(page==="home" ){ %>
+              <div class="d-flex flex-row">
+                <i class="bi bi-house-fill me-3"></i>
+                <p>Inicio</p>
+              </div>
+              <% } else{%>
+                <div class="d-flex flex-row">
+                  <i class="bi bi-house me-3"></i>
+                  <p>Inicio</p>
+                </div>
+                <% } %>
+          </a>
+        </li>
+        <li>
+          <a href="/explorer" class="nav-link text-white rounded-pill my-1">
+            <% if(page==="explorer" ){ %>
+              <div class="d-flex flex-row">
+                <i class="bi bi-people-fill me-3"></i>
+                <p>Explorar</p>
+              </div>
+              <% } else{%>
+                <div class="d-flex flex-row">
+                  <i class="bi bi-people me-3"></i>
+                  <p>Explorar</p>
+                </div>
+                <% } %>
+          </a>
+        </li>
+        <li>
+          <a href="/sorry" class="nav-link text-white rounded-pill my-1">
+            <div class="d-flex flex-row">
+              <i class="bi bi-bell me-3"></i>
+              <p>Notificaciones</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/sorry" class="nav-link text-white rounded-pill my-1">
+            <div class="d-flex flex-row">
+              <i class="bi bi-envelope me-3"></i>
+              <p>Mensajes</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/sorry" class="nav-link text-white rounded-pill my-1">
+            <div class="d-flex flex-row">
+              <i class="bi bi-bookmark me-3"></i>
+              <p>Guardados</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/sorry" class="nav-link text-white rounded-pill my-1">
+            <div class="d-flex flex-row">
+              <i class="bi bi-card-text me-3"></i>
+              <p>Listas</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/profile/<%= user.username %> " class="nav-link text-white rounded-pill my-1">
+            <div class="d-flex flex-row">
+              <i class="bi bi-person me-3"></i>
+              <p>Perfil</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="" class="nav-link text-white rounded-pill my-1">
+            <div class="d-flex flex-row">
+              <i class="bi bi-three-dots me-3"></i>
+              <p>Más opciones</p>
+            </div>
+          </a>
+        </li>
+      </ul>
 
-    <button
-      id="btn-modal"
-      type="button"
-      data-bs-toggle="modal"
-      data-bs-target="#tweeteModal"
-      class="btn btn-danger btn-modal my-1 btn-twittear-sm"
-    >
-      <i class="bi bi-pencil"></i>
-    </button>
+      <button id="btn-modal" type="button" data-bs-toggle="modal" data-bs-target="#tweeteModal"
+        class="btn btn-danger btn-modal my-1 p-0 btn-twittear-sm">
+        <i class="bi bi-pencil"></i>
+      </button>
 
-    <button
-      id="btn-modal"
-      type="button"
-      data-bs-toggle="modal"
-      data-bs-target="#tweeteModal"
-      class="btn btn-danger btn-modal my-1 mx-1 py-2 rounded-pill btn-twittear-lg"
-    >
-      Twittear
-    </button>
+      <button id="btn-modal" type="button" data-bs-toggle="modal" data-bs-target="#tweeteModal"
+        class="btn btn-danger btn-modal my-1 mx-1 py-2 rounded-pill btn-twittear-lg">
+        Twittear
+      </button>
 
-    <div
-      id="profilepill-lg"
-      class="d-flex align-items-center justify-content-between pt-2 position-absolute bottom-0 rounded-pill w-75"
-    >
-      <a
-        href="/profile"
-        class="d-flex align-items-center justify-content-between text-white text-decoration-none p-1"
-      >
-        <div class="d-flex flex-row align-items-center">
+      <div
+        class="align-items-center justify-content-between pt-2 position-absolute bottom-3 rounded-pill w-75 profilepill-lg">
+        <a href="/profile"
+          class="d-flex align-items-center justify-content-between text-white text-decoration-none p-1">
+          <div class="d-flex flex-row align-items-center">
+            <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
+            <div class="d-flex flex-column mx-2 lh-1">
+              <span class="p-0">
+                <%= user.firstname + " " + user.lastname %>
+              </span>
+              <span class="p-0 text-secondary" style="font-size: small">@<%= user.username %></span>
+            </div>
+          </div>
+        </a>
+        <a class="fs-4 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i class="bi bi-three-dots-vertical"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="/logout">Log out</a></li>
+        </ul>
+      </div>
+
+      <div class="align-items-center justify-content-between pt-2 rounded-pill w-75 profilepill-sm">
+        <a class="fs-4 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          aria-expanded="false">
           <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
-          <div class="d-flex flex-column mx-2 lh-1">
-            <span class="p-0"> <%= user.firstname + " " + user.lastname %> </span>
-            <span class="p-0 text-secondary" style="font-size: small">@<%= user.username %></span>
-          </div>
-        </div>
-      </a>
-      <a
-        class="fs-4 text-white"
-        type="button"
-        id="dropdownMenuButton1"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        <i class="bi bi-three-dots-vertical"></i>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="/logout">Log out</a></li>
-      </ul>
-    </div>
-
-    <div
-      id="profilepill-sm"
-      class="d-flex align-items-center justify-content-between pt-2 position-absolute bottom-0 rounded-pill w-75"
-    >
-      <a
-        class="fs-4 text-white"
-        type="button"
-        id="dropdownMenuButton1"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
-      </a>
-      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="/profile/<%= user.username %> ">Profile</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="/logout">Log out</a></li>
-      </ul>
-    </div>
-
-    <!--MENU CUANDO ESTA OFFLINE-->
-    <% } else{%>
-    <ul class="nav nav-pills flex-column mb-auto fs-4 pb-2">
-      <li>
-        <a href="/explorer" class="nav-link text-white">
-          <% if(page==="explorer" ){ %>
-          <i class="bi bi-people-fill me-3"></i>Explorar <% } else{%>
-          <i class="bi bi-people me-3"></i>Explorar <% } %>
         </a>
-      </li>
-    </ul>
-    <a href="/" class="btn btn-danger m-2 p-2 rounded-pill">Registrate</a>
-    <% } %>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="/profile/<%= user.username %> ">Profile</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="/logout">Log out</a></li>
+        </ul>
+      </div>
+
+      <!--MENU CUANDO ESTA OFFLINE-->
+      <% } else{%>
+        <ul class="nav nav-pills flex-column mb-auto fs-4 pb-2">
+          <li>
+            <a href="/explorer" class="nav-link text-white">
+              <% if(page==="explorer" ){ %>
+                <i class="bi bi-people-fill me-3"></i>Explorar <% } else{%>
+                  <i class="bi bi-people me-3"></i>Explorar <% } %>
+            </a>
+          </li>
+        </ul>
+        <a href="/" class="btn btn-danger m-2 p-2 rounded-pill">Registrate</a>
+        <% } %>
   </div>
 </div>
