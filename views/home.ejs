@@ -19,7 +19,7 @@
     rel="stylesheet">
   <!-- Local CSS -->
   <link rel="stylesheet" href="css/styles.css">
-  <title>Hello, world!</title>
+  <title>Tw%tt#r</title>
 </head>
 
 <body class="bg-dark">
@@ -28,8 +28,8 @@
     <%- include("partials/nav") %>
 
       <!--Main Content-->
-      <div class="container main w-50 border-start border-end">
-        <div class="mt-4">
+      <div class="container main w-50 border-start border-end p-0">
+        <div class="mx-3 mt-4">
           <div class="d-flex flex-row">
             <div>
               <p class="fs-5 flex-grow-1"><strong>Home</strong></p>
@@ -49,8 +49,8 @@
         </div>
         <div>
           <% for(const tweet of tweets) {%>
-            <a class="tweets" href="">
-              <article class="border">
+            <a class="tweets text-decoration-none" href="/">
+              <article class="border-top border-bottom">
                 <div class="d-flex flex-row justify-content-between">
                   <div class="d-flex flex-row p-3">
                     <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
@@ -60,7 +60,7 @@
                           <%= tweet.user.firstname + " " + tweet.user.lastname %>
                         </span>
                         <span class="p-0 ps-1 text-secondary" style="font-size: small">@<%= tweet.user.username %>
-                            </span>
+                        </span>
                       </div>
                       <p class="pt-2">
                         <%= tweet.content %>
