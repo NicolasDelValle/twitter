@@ -60,10 +60,10 @@
                       <span class="p-0 text-white">
                         <%= tweet.user.firstname + " " + tweet.user.lastname %>
                       </span>
-                      <span class="p-0 ps-1 text-secondary" style="font-size: small">@<%= tweet.user.username %>
+                      <span class="p-0 ps-1 text-secondary">@<%= tweet.user.username %>
                       </span>
                     </div>
-                    <a class="text-decoration-none text-white" href="/tweetPage/<%= tweet.id %> ">
+                    <a class="text-decoration-none text-white mt-2" href="/tweetPage/<%= tweet.id %> ">
                       <%= tweet.content %>
                     </a>
                     <form id="like" method="POST" action="/tweet/likee/<%= user._id %>">

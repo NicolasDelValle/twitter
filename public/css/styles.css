@@ -182,6 +182,17 @@ p {
   }
 }
 
+.nav-link {
+  height: 3rem;
+  animation-name: fade-out2;
+  animation-duration: 0.5s;
+}
+
+.nav-link:hover {
+  background: #383f46;
+  animation-name: fade-in2;
+}
+
 .mini-headlines p {
   font-size: 0.8rem;
   font-weight: 100;
@@ -269,5 +280,50 @@ footer {
 
   #contenedor {
     margin: 0;
+  }
+
+  nav.li {
+    height: 2rem;
+    width: 2rem;
+    margin-left: 2rem;
+  }
+
+  .nav-link {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .btn-twittear-lg {
+    display: none;
+  }
+
+  .btn-twittear-sm {
+    height: 2rem;
+    width: 2rem;
+    display: inline;
+    margin-left: 0.5rem;
+    border-radius: 50%;
+  }
+
+  #profilepill-lg {
+    display: none;
+  }
+
+  #profilepill-sm {
+    display: inline;
+  }
+}
+
+@media (min-width: 991px) {
+  .btn-twittear-sm {
+    display: none;
+  }
+
+  #profilepill-lg {
+    display: inline;
+  }
+
+  #profilepill-sm {
+    display: none;
   }
 }
