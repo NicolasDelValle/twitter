@@ -7,11 +7,13 @@ async function showHome(req, res) {
 }
 
 async function showExplorer(req, res) {
-  res.render("explorer", { page: "explorer" });
+  const tweets = await Tweet.find().populate("user");
+  res.render("explorer", { page: "explorer", tweets });
 }
 
 async function showProfile(req, res) {
-  res.render("profile", { page: "profile" });
+  const tweets = await Tweet.find({ user: req.user._id }).populate("user");
+  res.render("profile", { page: "profile", tweets });
 }
 
 async function showSorry(req, res) {

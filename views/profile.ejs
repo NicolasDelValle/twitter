@@ -18,7 +18,7 @@
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap"
     rel="stylesheet" />
   <!-- Local CSS -->
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
   <title>Tw%tt#r</title>
 </head>
 
@@ -30,11 +30,11 @@
       <!--Main Content-->
       <div class="container main w-50 border-start border-end p-0">
         <div class="d-flex flex-column text-white">
-          <img src="img/bannerProfile.jpg" style="height: 199px" class="img-fluid" alt="..." />
+          <img src="/img/bannerProfile.jpg" style="height: 199px" class="img-fluid" alt="..." />
           <div id="header" class="px-3 border-bottom pb-4">
             <div class="mt-2 d-flex flex-row justify-content-between">
               <div style="height: 70px; position: relative">
-                <img src="img/ungato.jpg" style="bottom: 0%; position: absolute" alt="" width="170" height="170"
+                <img src="<%= user.avatar %>" style="bottom: 0%; position: absolute" alt="" width="170" height="170"
                   class="rounded-circle" />
               </div>
               <div>
@@ -45,9 +45,13 @@
               </div>
             </div>
             <div class="d-flex flex-column mt-3">
-              <span class="fs-5 fw-bold lh-1">Nombre Apellid</span>
-              <span class="fs-6 fw-light text-secondary lh-1">@username</span>
-              <span class="fs-6 fw-light my-3">Biografia</span>
+              <span class="fs-5 fw-bold lh-1">
+                <%= user.firstname + " " + user.lastname %>
+              </span>
+              <span class="fs-6 fw-light text-secondary lh-1">@<%= user.username %></span>
+              <span class="fs-6 fw-light my-3">
+                <%= user.bio %>
+              </span>
               <div class="text-decoration-none">
                 <a href="" class="text-decoration-none"><span class="text-white">123</span>
                   <span class="fw-light text-secondary">Siguiendo</span></a>
@@ -57,6 +61,52 @@
             </div>
           </div>
         </div>
+        <% for(const tweet of tweets) {%>
+          <article class="border-top tweets">
+            <div class="d-flex flex-row justify-content-between">
+              <a class="text-decoration-none" href="/">
+                <div class="d-flex flex-row p-3">
+                  <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
+                  <div class="d-flex flex-column mx-2 lh-1">
+                    <div class="d-flex flex-row align-items-center">
+                      <span class="p-0 text-white">
+                        <%= tweet.user.firstname + " " + tweet.user.lastname %>
+                      </span>
+                      <span class="p-0 ps-1 text-secondary" style="font-size: small">@<%= tweet.user.username %>
+                      </span>
+                    </div>
+                    <a class="text-decoration-none text-white" href="/tweetPage/<%= tweet.id %> ">
+                      <%= tweet.content %>
+                    </a>
+                    <form id="like" method="POST" action="/tweet/likee/<%= user._id %>">
+                      <div class="d-flex justify-content-end">
+                        <button id="btn-like" class="btn btn-link btn-sm text-decoration-none pt-1" type="submit">
+                          <i class="bi bi-heart fs-6 mt-4"></i>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </a>
+              <div class="pe-4 pt-2">
+                <a id="dropdown-tweet" class="fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="bi bi-three-dots"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-secondary p-0" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
+                      <button class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
+                        type="submit">
+                        Eliminar<i class="bi bi-trash ps-1"></i>
+                      </button>
+                    </form>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <% } %>
       </div>
       <!--Side Bar Trends-->
       <%- include("partials/sideBarTrends") %>

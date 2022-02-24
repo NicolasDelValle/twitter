@@ -249,3 +249,25 @@ footer {
   color: #ffffff;
   background-color: #080808;
 }
+
+.main {
+  max-width: 50%;
+}
+
+@media (max-width: 991px) {
+  .side-bar-r {
+    display: none;
+  }
+
+  .side-bar-l p {
+    display: none;
+  }
+
+  .main {
+    min-width: 60vw;
+  }
+
+  #contenedor {
+    margin: 0;
+  }
+}

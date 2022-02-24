@@ -10,7 +10,7 @@ const { isAuthLogged } = require("../middlewares/isAuth");
 
 publicRouter.get("/home", isAuthLogged, showHome);
 publicRouter.get("/explorer", showExplorer);
-publicRouter.get("/profile", isAuthLogged, showProfile);
+publicRouter.get("/profile/:username", isAuthLogged, showProfile);
 publicRouter.get("/sorry", showSorry);
 /* publicRouter.get("/:id", publicController.showProfile); */
 
