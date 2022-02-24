@@ -39,21 +39,53 @@
         <div class="mx-3 mt-4">
           <div class="d-flex flex-row">
             <div>
-              <p class="fs-5 flex-grow-1">
+              <p class="fs-5 flex-grow-1 text-white">
                 <i class="bi bi-arrow-left"></i>
                 <strong>Tweet</strong>
               </p>
             </div>
           </div>
-        </div>
-        <div>
-          <span class="p-0 text-white">
-            <%= tweet.user.firstname + " " + tweet.user.lastname %>
-          </span>
+          <article class="">
+            <div class="d-flex flex-row justify-content-between">
+              <div class="d-flex flex-row p-3">
+                <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
+                <div class="d-flex flex-column mx-2 lh-1">
+                  <div class="d-flex flex-row align-items-center">
+                    <span class="p-0 text-white">
+                      <%= tweet.user.firstname + " " + tweet.user.lastname %>
+                    </span>
+                    <span class="p-0 ps-1 text-secondary" style="font-size: small">@<%= tweet.user.username %>
+                    </span>
+                  </div>
+                  <p class="pt-2 text-white">
+                    <%= tweet.content %>
+                  </p>
+                  <form id="like" method="" action="">
+                    <button id="btn-like" class="btn btn-link btn-sm text-decoration-none pt-1" type="submit"><i
+                        class="bi bi-heart fs-4 mt-4"></i></button>
+                  </form>
+                </div>
+              </div>
+              <div class="pe-3">
+                <a class="fs-4 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="bi bi-three-dots"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-secondary p-0" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
+                      <button class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
+                        type="submit">Eliminar<i class="bi bi-trash ps-1"></i></button>
+                    </form>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
         </div>
 
-       <div>
-          <img src="/public/img/ungato.jpg" alt="" width="50" height="50" class="rounded-circle" />
+        <div>
+          <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
           <form id="tweetForm" action="" method="">
             <textarea rows="2" name="content" class="form-control bg-dark text-white" id="content" type="text"
               placeholder="Twittea tu respuesta" data-sb-validations="required"></textarea>
@@ -65,35 +97,13 @@
           </button>
           </form>
         </div>
-        <!-- Submit Button -->
-       
-       
-      </div>
+        
+     </div>
       <!--Side Bar Trends-->
       <%- include("partials/sideBarTrends") %>
     </div>
 
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog border-3 mt-5">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body"></div>
-        </div>
-      </div>
-    </div>
+ 
 
     <script>
       document.querySelector("#like").addEventListener("submit", async (e) => {
