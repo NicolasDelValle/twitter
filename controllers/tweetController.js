@@ -1,7 +1,14 @@
+const { id } = require("date-fns/locale");
 const { User, Tweet } = require("../models");
 
 // Display the specified resource.
-async function showTweet(req, res) {}
+async function showTweet(req, res) {
+  const { id } = req.params;
+  console.log(req.params);
+  const tweet = await Tweet.findById(id).populate("user");
+
+  res.render("tweetPage", { page: "tweetPage", tweet });
+}
 
 // Store a newly created resource in storage.
 async function createTweet(req, res) {

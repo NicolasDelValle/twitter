@@ -3,7 +3,7 @@ const { showTweet, createTweet, destroyTweet } = require("../controllers/tweetCo
 const tweetRouter = express.Router();
 const { isAuthLogged } = require("../middlewares/isAuth");
 
-tweetRouter.get("/tweet", showTweet);
+tweetRouter.get("/tweetPage/:id", showTweet);
 tweetRouter.post("/tweet", isAuthLogged, createTweet);
 tweetRouter.delete("/tweet/:id", isAuthLogged, destroyTweet);
 
