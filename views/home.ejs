@@ -29,13 +29,13 @@
 
       <!--Main Content-->
       <div class="container main w-50 border-start border-end p-0">
-        <div class="mx-3 mt-4">
-          <div class="d-flex flex-row">
-            <div>
-              <p class="fs-5 flex-grow-1"><strong>Home</strong></p>
-            </div>
-            <div class="text-white"><i class="bi bi-stars"></i></div>
+        <nav class="d-flex justify-content-between flex-row bg-dark border-secondary pt-3 px-3 mb-2">
+          <div>
+            <p class="fs-5 flex-grow-1"><strong>Home</strong></p>
           </div>
+          <div class="text-white"><i class="bi bi-stars"></i></div>
+        </nav>
+        <div class="mx-3">
           <form id="tweetForm" action="/tweet" method="post">
             <textarea rows="5" name="content" class="form-control bg-dark text-white" id="content" type="text"
               placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
@@ -48,7 +48,6 @@
             </div>
           </form>
         </div>
-
 
         <% for(const tweet of tweets) {%>
           <article class="border-top tweets ">
