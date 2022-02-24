@@ -95,8 +95,26 @@ p {
 #btn-like {
   border-radius: 50%;
   color: #ffff;
+  height: 40px;
+  width: 40px;
 }
 
 #btn-destroy {
   font-weight: 100;
+}
+
+.mightlike-card {
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  height: 350px;
+  background: #060708;
+  border-radius: 3%;
+}
+
+.trends-card {
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  height: 450px;
+  background: #060708;
+  border-radius: 3%;
 }
