@@ -31,6 +31,8 @@ async function destroyTweet(req, res) {
   }
 }
 
+async function like(req, res) {}
+
 // Otros handlers...
 // ...
 
@@ -38,4 +40,5 @@ module.exports = {
   showTweet,
   createTweet,
   destroyTweet,
+  like,
 };
