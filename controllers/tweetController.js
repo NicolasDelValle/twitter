@@ -1,7 +1,9 @@
 const { User, Tweet } = require("../models");
 
 // Display the specified resource.
-async function showTweet(req, res) {}
+async function showTweet(req, res) {
+  res.render("/tweet");
+}
 
 // Store a newly created resource in storage.
 async function createTweet(req, res) {

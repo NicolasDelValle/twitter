@@ -41,56 +41,7 @@
               placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
         </div>
         <!-- Submit Button -->
-        <div class="modal-footer border-0">
-          <button class="btn btn-register btn-form btn-danger rounded-pill rounded-2" id="submitButton" type="submit">
-            Tweet
-          </button>
-          </form>
-        </div>
-        <div>
-          <% for(const tweet of tweets) {%>
-            <a class="tweets text-decoration-none" href="/">
-              <article class="border-top border-bottom">
-                <div class="d-flex flex-row justify-content-between">
-                  <div class="d-flex flex-row p-3">
-                    <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
-                    <div class="d-flex flex-column mx-2 lh-1">
-                      <div class="d-flex flex-row align-items-center">
-                        <span class="p-0 text-white">
-                          <%= tweet.user.firstname + " " + tweet.user.lastname %>
-                        </span>
-                        <span class="p-0 ps-1 text-secondary" style="font-size: small">@<%= tweet.user.username %>
-                        </span>
-                      </div>
-                      <p class="pt-2">
-                        <%= tweet.content %>
-                      </p>
-                      <form id="like" method="POST" action="/tweet/<%= user._id %>">
-                        <button id="btn-like" class="btn btn-link btn-sm text-decoration-none pt-1" type="submit"><i
-                            class="bi bi-heart fs-4 mt-4"></i></button>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="pe-3">
-                    <a class="fs-4 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      <i class="bi bi-three-dots"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-secondary p-0" aria-labelledby="dropdownMenuButton1">
-                      <li>
-                        <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
-                          <button class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
-                            type="submit">Eliminar<i class="bi bi-trash ps-1"></i></button>
-                        </form>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </article>
-            </a>
-            <% } %>
-        </div>
-      </div>
+       
       <!--Side Bar Trends-->
       <%- include("partials/sideBarTrends") %>
   </div>
