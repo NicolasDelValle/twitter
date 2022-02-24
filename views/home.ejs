@@ -89,7 +89,13 @@
                       >@<%= tweet.user.username %>
                     </span>
                   </div>
-                  <p class="pt-2"><%= tweet.content %></p>
+                  <a class="text-decoration-none text-white" href="/tweetPage/<%= tweet.id %> "
+                    ><%= tweet.content %></a
+                  >
+                  <!-- <p class="pt-2">
+                    
+                      
+                    </p> -->
                   <form id="like" method="POST" action="/tweet/likee/<%= user._id %>">
                     <div class="d-flex justify-content-end">
                       <button

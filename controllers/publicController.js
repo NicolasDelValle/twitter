@@ -14,6 +14,10 @@ async function showProfile(req, res) {
   res.render("profile", { page: "profile" });
 }
 
+async function showSorry(req, res) {
+  res.render("sorry", { page: "sorry" });
+}
+
 async function showContact(req, res) {
   res.render("contact");
 }
@@ -29,6 +33,7 @@ module.exports = {
   showHome,
   showExplorer,
   showProfile,
+  showSorry,
   showContact,
   showAboutUs,
 };
