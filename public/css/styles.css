@@ -119,6 +119,6 @@ p {
   border-radius: 3%;
 }
 
-.tweets:hover {
+a.tweets:hover {
   background: #383f46;
 }
