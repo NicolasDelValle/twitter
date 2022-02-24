@@ -49,8 +49,8 @@
         </div>
         <div>
           <% for(const tweet of tweets) {%>
-            <a class="tweets text-decoration-none" href="/">
-              <article class="border-top border-bottom">
+            <article class="border-top border-bottom tweets ">
+              <a class="text-decoration-none" href="/">
                 <div class="d-flex flex-row justify-content-between">
                   <div class="d-flex flex-row p-3">
                     <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
@@ -67,62 +67,62 @@
                       </p>
                       <form id="like" method="POST" action="/tweet/<%= user._id %>">
                         <button id="btn-like" class="btn btn-link btn-sm text-decoration-none pt-1" type="submit"><i
-                            class="bi bi-heart fs-4 mt-4"></i></button>
+                            class="bi bi-heart fs-6 mt-4"></i></button>
                       </form>
                     </div>
                   </div>
-                  <div class="pe-3">
-                    <a class="fs-4 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      <i class="bi bi-three-dots"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-secondary p-0" aria-labelledby="dropdownMenuButton1">
-                      <li>
-                        <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
-                          <button class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
-                            type="submit">Eliminar<i class="bi bi-trash ps-1"></i></button>
-                        </form>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </article>
-            </a>
-            <% } %>
+              </a>
+              <div class="pe-3">
+                <a class="fs-4 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="bi bi-three-dots"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-secondary p-0" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
+                      <button class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
+                        type="submit">Eliminar<i class="bi bi-trash ps-1"></i></button>
+                    </form>
+                  </li>
+                </ul>
+              </div>
         </div>
+        </article>
+        <% } %>
       </div>
-      <!--Side Bar Trends-->
-      <%- include("partials/sideBarTrends") %>
   </div>
+  <!--Side Bar Trends-->
+  <%- include("partials/sideBarTrends") %>
+    </div>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog border-3 mt-5">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="tweetForm" action="/tweet" method="post">
-            <textarea rows="5" name="content" class="form-control" id="content" type="text"
-              placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
-        </div>
-        <!-- Submit Button -->
-        <div class="modal-footer border-0">
-          <button class="btn btn-register btn-form btn-danger rounded-pill rounded-2" id="submitButton" type="submit">
-            Tweet
-          </button>
-          </form>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog border-3 mt-5">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="tweetForm" action="/tweet" method="post">
+              <textarea rows="5" name="content" class="form-control" id="content" type="text"
+                placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
+          </div>
+          <!-- Submit Button -->
+          <div class="modal-footer border-0">
+            <button class="btn btn-register btn-form btn-danger rounded-pill rounded-2" id="submitButton" type="submit">
+              Tweet
+            </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script>document.querySelector("#like").addEventListener("submit", async (e) => {
-      e.preventDefault()
-    })</script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+    <script>document.querySelector("#like").addEventListener("submit", async (e) => {
+        e.preventDefault()
+      })</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>

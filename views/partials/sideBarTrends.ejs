@@ -7,14 +7,132 @@
           class="bi bi-search"></i></button>
     </div>
 
-    <div class="mightlike-card">
-      <h3 class="text-white fs-5"><strong>You might Like</h3>
-      <a href="/"></a>
-      <a href="/"></a>
-      <a href="/"></a>
+    <!-- Trends Card -->
+    <div class="trends-card position-relative">
+      <div class="d-flex flex-row justify-content-between card1-header">
+        <h3 class="text-white fs-5"><strong>
+            Trends for you
+        </h3>
+        <button id="btn-settings" class="btn btn-link"><i class="bi bi-gear"></i></button>
+      </div>
+      <div class="d-flex flex-row justify-content-between mini-headlines">
+        <div>
+          <p class="m-0">Politics · Trending</p>
+          <h6 class="m-0"><strong>Ukraine</strong></h6>
+          <p class="m-0">2.4M Tweets</p>
+        </div>
+        <div>
+          <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-three-dots fs-6"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-between mini-headlines">
+        <div>
+          <p class="m-0">Politics · Trending</p>
+          <h6 class="m-0"><strong>Ukraine</strong></h6>
+          <p class="m-0">2.4M Tweets</p>
+        </div>
+        <div>
+          <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-three-dots fs-6"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-between mini-headlines">
+        <div>
+          <p class="m-0">Politics · Trending</p>
+          <h6 class="m-0"><strong>Ukraine</strong></h6>
+          <p class="m-0">2.4M Tweets</p>
+        </div>
+        <div>
+          <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-three-dots fs-6"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-between mini-headlines">
+        <div>
+          <p class="m-0">Politics · Trending</p>
+          <h6 class="m-0"><strong>Ukraine</strong></h6>
+          <p class="m-0">2.4M Tweets</p>
+        </div>
+        <div>
+          <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-three-dots fs-6"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-between mini-headlines">
+        <div>
+          <p class="m-0">Politics · Trending</p>
+          <h6 class="m-0"><strong>Ukraine</strong></h6>
+          <p class="m-0">2.4M Tweets</p>
+        </div>
+        <div>
+          <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-three-dots fs-6"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="position-absolute bottom-0 mb-2"><a class="text-decoration-none text-primary ps-2 btn-vermas"
+          href="">Ver más</a></div>
     </div>
-    <div class="trends-card mt-3 ">
-      <h3 class="text-white fs-5"><strong>Trends for you</strong></h3>
+
+    <!-- Might Like card -->
+    <div class="mightlike-card mt-3 position-relative">
+      <div class="d-flex flex-row justify-content-between card1-header">
+        <h3 class="text-white fs-5"><strong>Who to follow</strong></h3>
+        <button id="btn-settings" class="btn btn-link"><i class="bi bi-gear"></i></button>
+      </div>
+      <% for(let topUser=0; topUser < 3; topUser++) {%>
+        <div class="d-flex flex-row justify-content-between mini-headlines">
+          <div class="d-flex flex-row align-items-center">
+            <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
+            <div class="d-flex flex-column mx-2 lh-1">
+              <span class="p-0">
+                <%= user.firstname + " " + user.lastname %>
+              </span>
+              <span class="p-0 text-secondary" style="font-size: small">@<%= user.username %></span>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-sm btn-light text-secondary rounded-pill">Follow</button>
+          </div>
+        </div>
+        <% } %>
+          <div class="position-absolute bottom-0 mb-2"><a class="text-decoration-none text-primary ps-2 btn-vermas"
+              href="">Ver más</a></div>
     </div>
   </div>
 </div>

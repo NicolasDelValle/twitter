@@ -6,7 +6,7 @@ body {
 
 footer {
   height: 5vh;
-  background-color: #d3d3d3;
+  background-color: #e0e0e0;
 }
 
 .btn-submit {
@@ -79,10 +79,12 @@ main {
 }
 
 p {
-  color: #d3d3d3;
+  color: #e0e0e0;
 }
 
-.side-bar-r,
+.side-bar-r {
+  width: 30%;
+}
 .side-bar-l {
   width: 25%;
 }
@@ -93,32 +95,141 @@ p {
 }
 
 #btn-like {
+  padding: 0;
   border-radius: 50%;
-  color: #ffff;
-  height: 40px;
-  width: 40px;
+  color: #e0e0e0;
+  height: 30px;
+  width: 30px;
 }
 
 #btn-destroy {
   font-weight: 100;
 }
 
-.mightlike-card {
-  padding-left: 1rem;
-  padding-top: 0.5rem;
-  height: 350px;
-  background: #060708;
-  border-radius: 3%;
-}
-
 .trends-card {
-  padding-left: 1rem;
-  padding-top: 0.5rem;
-  height: 450px;
+  padding-top: 0.7rem;
+  height: 500px;
   background: #060708;
   border-radius: 3%;
 }
 
-a.tweets:hover {
+.mightlike-card {
+  padding-top: 0.7rem;
+  height: 310px;
+  background: #060708;
+  border-radius: 3%;
+}
+
+.trends-card h3,
+.mightlike-card h3 {
+  margin-top: 0.3rem;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.mini-headlines {
+  padding: 0.8rem;
+  animation-name: fade-out;
+  animation-duration: 0.5s;
+}
+
+@keyframes fade-out {
+  from {
+    background: #181a1d9b;
+  }
+  to {
+    background: #060708;
+  }
+}
+
+.mini-headlines:hover {
+  background: #181a1d9b;
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+}
+@keyframes fade-in {
+  from {
+    background: #060708;
+  }
+
+  to {
+    background: #181a1d9b;
+  }
+}
+
+.tweets {
+  animation-name: fade-out2;
+  animation-duration: 0.5s;
+}
+@keyframes fade-out2 {
+  from {
+    background: #383f46;
+  }
+
+  to {
+    background: #181a1d9b;
+  }
+}
+
+.tweets:hover {
   background: #383f46;
+  animation-name: fade-in2;
+  animation-duration: 0.5s;
+}
+
+@keyframes fade-in2 {
+  from {
+    background: #181a1d9b;
+  }
+
+  to {
+    background: #383f46;
+  }
+}
+
+.mini-headlines p {
+  font-size: 0.8rem;
+  font-weight: 100;
+  color: #606870;
+}
+.mini-headlines h6 {
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  color: #e0e0e0;
+}
+
+.card1-header span {
+  padding-right: 1.5rem;
+}
+
+#dropdown-toggle:hover {
+  background: #ff08001f;
+  color: #ff0800a1;
+}
+
+#dropdown-toggle {
+  border-radius: 50%;
+  color: #e0e0e0;
+  height: 25px;
+  width: 25px;
+}
+
+#btn-settings:hover {
+  background: #383f46;
+  color: #b6b6b6;
+}
+
+#btn-settings {
+  text-align: center;
+  border-radius: 50%;
+  color: #e0e0e0;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin-right: 1rem;
+}
+
+.btn-vermas {
+  font-weight: 100;
+  margin-left: 0.3rem;
 }
