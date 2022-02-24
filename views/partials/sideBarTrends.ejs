@@ -1,5 +1,5 @@
 <div class="side-bar-r">
-  <div class="d-flex flex-column p-3 text-white position-sticky top-0">
+  <div class="d-flex flex-column p-3 text-white position-fixed">
 
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
@@ -121,8 +121,8 @@
               <span class="p-0 text-secondary" style="font-size: small">@<%= user.username %></span>
             </div>
           </div>
-          <div>
-            <button class="btn btn-sm btn-light text-secondary rounded-pill">Follow</button>
+          <div class="btn-follow d-flex align-items-center">
+            <button class="btn btn-sm btn-light rounded-pill">Follow</button>
           </div>
         </div>
         <% } %>

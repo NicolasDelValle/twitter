@@ -11,6 +11,16 @@ async function showTweet(req, res) {
   res.render("tweetPage", { page: "tweetPage", tweet });
 }
 
+//Reply tweet with tweet
+async function replyTweet(req, res) {
+  const tweet = await new Tweet({
+    content: req.body.content,
+    user: req.user._id,
+  });
+  tweet.save();
+  res.redirect("/tweetPage/:id");
+}
+
 // Store a newly created resource in storage.
 async function createTweet(req, res) {
   const tweet = await new Tweet({
@@ -49,6 +59,7 @@ async function like(req, res) {
 
 module.exports = {
   showTweet,
+  replyTweet,
   createTweet,
   destroyTweet,
   like,

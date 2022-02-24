@@ -25,7 +25,7 @@
       rel="stylesheet"
     />
     <!-- Local CSS -->
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>Tw%tt#r</title>
   </head>
 
@@ -36,74 +36,86 @@
 
       <!--Main Content-->
       <div class="container main w-50 border-start border-end p-0">
-        <div class="mx-3 mt-4">
-          <div class="d-flex flex-row">
-            <div>
-              <p class="fs-5 flex-grow-1 text-white">
-                <i class="bi bi-arrow-left"></i>
-                <strong>Tweet</strong>
-              </p>
-            </div>
+        <nav
+          class="d-flex justify-content-between flex-row bg-dark border-secondary pt-3 px-3 mb-2"
+        >
+          <div>
+            <p class="fs-5 flex-grow-1 text-white">
+              <i class="bi bi-arrow-left"></i>
+              <strong>Tweet</strong>
+            </p>
           </div>
-          <article class="">
-            <div class="d-flex flex-row justify-content-between">
+        </nav>
+        <article class="tweets">
+          <div class="d-flex flex-row justify-content-between">
+            <a class="text-decoration-none" href="/">
               <div class="d-flex flex-row p-3">
-                <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
+                <img
+                  src="<%= tweet.user.avatar %>"
+                  alt=""
+                  width="50"
+                  height="50"
+                  class="rounded-circle"
+                />
                 <div class="d-flex flex-column mx-2 lh-1">
                   <div class="d-flex flex-row align-items-center">
                     <span class="p-0 text-white">
                       <%= tweet.user.firstname + " " + tweet.user.lastname %>
                     </span>
-                    <span class="p-0 ps-1 text-secondary" style="font-size: small">@<%= tweet.user.username %>
+                    <span class="p-0 ps-1 text-secondary" style="font-size: small"
+                      >@<%= tweet.user.username %>
                     </span>
                   </div>
-                  <p class="pt-2 text-white">
-                    <%= tweet.content %>
-                  </p>
-                  <form id="like" method="" action="">
-                    <button id="btn-like" class="btn btn-link btn-sm text-decoration-none pt-1" type="submit"><i
-                        class="bi bi-heart fs-4 mt-4"></i></button>
+                  <a class="text-decoration-none text-white" href="/tweetPage/<%= tweet.id %> "
+                    ><%= tweet.content %></a
+                  >
+                 
+                  <form id="like" method="POST" action="/tweet/<%= user._id %>">
+                    <div class="d-flex justify-content-end">
+                      <button
+                        id="btn-like"
+                        class="btn btn-link btn-sm text-decoration-none pt-1"
+                        type="submit"
+                      >
+                        <i class="bi bi-heart fs-6 mt-4"></i>
+                      </button>
+                    </div>
                   </form>
                 </div>
               </div>
-              <div class="pe-3">
-                <a class="fs-4 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <i class="bi bi-three-dots"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-secondary p-0" aria-labelledby="dropdownMenuButton1">
-                  <li>
-                    <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
-                      <button class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
-                        type="submit">Eliminar<i class="bi bi-trash ps-1"></i></button>
-                    </form>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div>
-          <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
-          <form id="tweetForm" action="" method="">
-            <textarea rows="2" name="content" class="form-control bg-dark text-white" id="content" type="text"
-              placeholder="Twittea tu respuesta" data-sb-validations="required"></textarea>
-        </div>
-        <!-- Submit Button -->
-        <div class="modal-footer border-0">
-          <button class="btn btn-register btn-form btn-danger rounded-pill rounded-2" id="submitButton" type="submit">
-            Responder
-          </button>
-          </form>
-        </div>
-        
-     </div>
+            </a>         
+        </article>
+       
+          <div>
+            <div class="d-flex flex-row">            
+              <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
+              <form id="tweetForm" action="/tweetPage/:id" method="post">
+                <textarea
+                  rows="2"                
+                  name="content"
+                  class="form-control bg-dark text-white"
+                  id="content"
+                  type="text"
+                  placeholder="Twittea tu respuesta"
+                  data-sb-validations="required"
+                ></textarea>
+                <!-- Submit Button -->        
+                <div class="d-flex justify-content-end">
+                  <button
+                    class="btn btn-register btn-form btn-danger rounded-pill rounded-2 my-3"
+                    id="submitButton"
+                    type="submit"
+                  >
+                    Responder
+                  </button>
+                </div>
+              </form>
+            </div>        
+          </div>
+      </div>
       <!--Side Bar Trends-->
       <%- include("partials/sideBarTrends") %>
     </div>
-
- 
 
     <script>
       document.querySelector("#like").addEventListener("submit", async (e) => {
