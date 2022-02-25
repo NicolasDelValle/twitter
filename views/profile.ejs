@@ -34,8 +34,8 @@
           <div id="header" class="px-3 border-bottom pb-4">
             <div class="mt-2 d-flex flex-row justify-content-between">
               <div style="height: 70px; position: relative">
-                <img src="<%= user.avatar %>" style="bottom: 0%; position: absolute" alt="" width="170" height="170"
-                  class="rounded-circle" />
+                <img src="<%= user.avatar %>" style="bottom: 18%; position: absolute;" alt=""
+                  class="rounded-circle avatar-img" />
               </div>
               <div>
                 <button type="button" style="width: 130px; height: 32px"
@@ -125,7 +125,7 @@
           <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle me-2" />
           <form id="tweetForm" action="/tweet" method="post" class="w-100">
             <textarea style="resize: none" rows="5" name="content"
-              class="form-control border bg-dark border-1 border-bottom tex-white" id="content" type="text"
+              class="form-control border bg-dark border-1 border-bottom text-white" id="content" type="text"
               placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
             <div class="my-2">
               <button class="btn btn-register btn-form btn-danger rounded-pill rounded-2" id="submitButton"

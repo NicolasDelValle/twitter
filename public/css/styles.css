@@ -63,6 +63,7 @@ h1 {
 
 main {
   height: 95%;
+  min-width: 50%;
 }
 
 .modal-dialog {
@@ -266,10 +267,6 @@ footer {
   background-color: #080808;
 }
 
-.main {
-  max-width: 50%;
-}
-
 @media (max-width: 991px) {
   .side-bar-r {
     display: none;
@@ -319,6 +316,11 @@ footer {
     position: absolute;
     bottom: 2%;
   }
+  .profilepill-sm:hover {
+    background: #383f46;
+    animation-name: fade-in2;
+    animation-duration: 0.5s;
+  }
 }
 
 @media (min-width: 991px) {
@@ -330,6 +332,13 @@ footer {
     display: flex;
     position: absolute;
     bottom: 2%;
+    width: 11.75rem;
+  }
+
+  .profilepill-lg:hover {
+    background: #383f46;
+    animation-name: fade-in2;
+    animation-duration: 0.5s;
   }
 
   .profilepill-sm {
@@ -344,4 +353,10 @@ footer {
 
 .background-img {
   object-fit: cover;
+}
+
+.avatar-img {
+  width: 170;
+  height: 170;
+  border: 5px solid #383f46;
 }
