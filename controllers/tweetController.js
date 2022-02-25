@@ -5,7 +5,6 @@ const { User, Tweet } = require("../models");
 // Display the specified resource.
 async function showTweet(req, res) {
   const { id } = req.params;
-  console.log(req.params);
   const tweet = await Tweet.findById(id).populate("user");
 
   res.render("tweetPage", { page: "tweetPage", tweet });

@@ -52,58 +52,63 @@
         <% for(const tweet of tweets) {%>
           <article class="border-bottom border-secondary tweets">
             <div class="d-flex flex-row justify-content-between">
-              <div class="d-flex flex-row p-3">
+              <div class="d-flex flex-row p-3 w-100">
                 <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
-                <div class="d-flex flex-column mx-2 lh-1">
-                  <div class="d-flex flex-row align-items-center">
-                    <span class="p-0 text-white">
-                      <%= tweet.user.firstname + " " + tweet.user.lastname %>
-                    </span>
-                    <span class="p-0 ps-1 text-secondary" style="font-size: small">@<%= tweet.user.username %>
-                    </span>
-                  </div>
-                  <div class="content-tweet text-white">
-                    <%= tweet.content %>
-                  </div>
-                  <!--Button like-->
-                  <div class="d-flex justify-content-end mt-3">
-                    <button id="likes-btn-<%= tweet.id %>" data-tweet-id="<%= tweet.id %>" onclick="postLike()"
-                      class="btn btn-link btn-sm text-decoration-none btn-like" type="submit">
-                      <% if(tweet.likes.includes(user._id)){ %>
-                        <i class="bi bi-heart fs-6 text-danger"></i>
-                        <% }else{ %>
-                          <i class="bi bi-heart fs-6 text-white"></i>
-                          <% } %>
-                    </button>
-                    <span id="likes-count" class="text-white d-flex align-items-center">
-                      <% if(tweet.likes.length !==0){ %>
-                        <%= tweet.likes.length %>
-                          <% } %>
-                    </span>
-                  </div>
+                <a class="text-decoration-none" href="/tweetPage/<%= tweet.id %>">
+                  <div class="d-flex flex-column mx-2 lh-1 w-100">
+                    <div class="d-flex flex-row align-items-center">
+                      <a class="text-decoration-none" href="/profile/<%= tweet.user.username %>">
+                        <span class=" p-0 text-white">
+                          <%= tweet.user.firstname + " " + tweet.user.lastname %>
+                        </span>
+                      </a>
+                      <span class="p-0 ps-1 text-secondary" style="font-size: small">@<%= tweet.user.username %>
+                      </span>
+                    </div>
+                    <div class="content-tweet text-white">
+                      <%= tweet.content %>
+                    </div>
+                </a>
+                <!--Button like-->
+                <div class="d-flex justify-content-end mt-3 ">
+                  <button id="likes-btn-<%= tweet.id %>" data-tweet-id="<%= tweet.id %>" onclick="postLike(this)"
+                    class="btn btn-link btn-sm text-decoration-none btn-like" type="submit">
+                    <% if(tweet.likes.includes(user._id)){ %>
+                      <i class="bi bi-heart fs-6 text-danger"></i>
+                      <% }else{ %>
+                        <i class="bi bi-heart fs-6 text-white"></i>
+                        <% } %>
+                  </button>
+                  <span id="likes-count-<%= tweet.id %>" class="text-white d-flex align-items-center">
+                    <% if(tweet.likes.length !==0){ %>
+                      <%= tweet.likes.length %>
+                        <% } %>
+                  </span>
                 </div>
               </div>
+            </div>
 
-              <div class="pe-4 pt-2">
-                <a id="dropdown-tweet" class="fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <i class="bi bi-three-dots"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-secondary p-0" aria-labelledby="dropdownMenuButton1">
-                  <li>
-                    <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
-                      <button class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
-                        type="submit">
-                        Eliminar<i class="bi bi-trash ps-1"></i>
-                      </button>
-                    </form>
-                  </li>
-                </ul>
-              </div>
+            <div class="pe-4 pt-2">
+              <a id="dropdown-tweet" class="fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="bi bi-three-dots"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-secondary p-0" aria-labelledby="dropdownMenuButton1">
+                <li>
+                  <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
+                    <button class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
+                      type="submit">
+                      Eliminar<i class="bi bi-trash ps-1"></i>
+                    </button>
+                  </form>
+                </li>
+              </ul>
             </div>
           </article>
           <% } %>
       </div>
+
+
       <!--Side Bar Trends-->
       <%- include("partials/sideBarTrends") %>
   </div>
