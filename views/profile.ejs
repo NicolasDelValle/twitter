@@ -65,9 +65,9 @@
           <article class="border-top tweets border-secondary">
             <div class="d-flex flex-row justify-content-between">
               <a class="text-decoration-none" href="/">
-                <div class="d-flex flex-row p-3">
+                <div class="d-flex flex-row p-3 w-100">
                   <img src="<%= userProfile.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
-                  <div class="d-flex flex-column mx-2 lh-1">
+                  <div class="d-flex flex-column mx-2 lh-1 w-100">
                     <div class="d-flex flex-row align-items-center">
                       <span class="p-0 text-white">
                         <%= userProfile.firstname + " " + userProfile.lastname %>
@@ -75,7 +75,7 @@
                       <span class="p-0 ps-1 text-secondary">@<%= userProfile.username %>
                       </span>
                     </div>
-                    <a class="text-decoration-none text-white" href="/tweetPage/<%= tweet.id %> ">
+                    <a class="text-decoration-none text-white content-tweet" href="/tweetPage/<%= tweet.id %> ">
                       <%= tweet.content %>
                     </a>
                     <!--Button like-->

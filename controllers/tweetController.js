@@ -26,6 +26,7 @@ async function createTweet(req, res) {
     content: req.body.content,
     user: req.user._id,
   });
+  await User.findByIdAndUpdate(req.user._id, { tweets: tweet._id });
   tweet.save();
   res.redirect("/home");
 }
