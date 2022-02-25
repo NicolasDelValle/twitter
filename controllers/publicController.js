@@ -14,7 +14,6 @@ async function showExplorer(req, res) {
 async function showProfile(req, res) {
   /* const tweets = await Tweet.find({ user: req.user._id }).populate("user"); */
   const [userProfile] = await User.find({ username: req.params.username }).populate("tweets");
-  console.log(userProfile);
   res.render("profile", { page: "profile", /* tweets, */ userProfile });
 }
 

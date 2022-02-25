@@ -15,5 +15,11 @@ function isAuthUnlogged(req, res, next) {
     return next();
   }
 }
-
-module.exports = { isAuthLogged, isAuthUnlogged };
+function isYourProfile(req, res, next) {
+  if (req.user.username === req.params.username) {
+    res.end("no es tu perfil >:(");
+  } else {
+    return next();
+  }
+}
+module.exports = { isAuthLogged, isAuthUnlogged, isYourProfile };
