@@ -28,213 +28,76 @@
     <%- include("partials/nav") %>
 
       <!--Main Content-->
-      <div class="container main w-50 border-start border-end p-0">
-        <nav class="d-flex justify-content-between flex-row bg-dark border-secondary pt-3 px-3 mb-2">
+      <div class="container main border-start border-end border-secondary p-0">
+        <nav class="d-flex justify-content-between flex-row bg-dark pt-3 px-3 mb-2">
           <div>
             <p class="fs-5 flex-grow-1"><strong>Explorar</strong></p>
           </div>
           <div class="text-white"><i class="bi bi-stars"></i></div>
         </nav>
-        <div class="mx-3">
-          <form id="tweetForm" action="/tweet" method="post">
-            <textarea rows="5" name="content" class="form-control bg-dark text-white" id="content" type="text"
-              placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
-            <!-- Submit Button -->
-            <div class="d-flex justify-content-end">
-              <button class="btn btn-register btn-form btn-danger rounded-pill rounded-2 my-3" id="submitButton"
-                type="submit">
-                Tweet
-              </button>
-            </div>
-          </form>
-        </div>
 
         <% for(const tweet of tweets) {%>
-          <article class="border-top tweets">
+          <article class="border-bottom border-secondary tweets">
             <div class="d-flex flex-row justify-content-between">
-              <a class="text-decoration-none" href="/">
-                <div class="d-flex flex-row p-3">
-                  <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
-                  <div class="d-flex flex-column mx-2 lh-1">
+              <div class="d-flex flex-row p-3 w-100">
+                <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
+                <a class="text-decoration-none" href="/tweetPage/<%= tweet.id %>">
+                  <div class="d-flex flex-column mx-2 lh-1 w-100">
                     <div class="d-flex flex-row align-items-center">
-                      <span class="p-0 text-white">
-                        <%= tweet.user.firstname + " " + tweet.user.lastname %>
-                      </span>
+                      <a class="text-decoration-none" href="/profile/<%= tweet.user.username %>">
+                        <span class=" p-0 text-white">
+                          <%= tweet.user.firstname + " " + tweet.user.lastname %>
+                        </span>
+                      </a>
                       <span class="p-0 ps-1 text-secondary" style="font-size: small">@<%= tweet.user.username %>
                       </span>
                     </div>
-                    <a class="text-decoration-none text-white" href="/tweetPage/<%= tweet.id %> ">
+                    <div class="content-tweet text-white">
                       <%= tweet.content %>
-                    </a>
-                    <!-- <p class="pt-2">
-                  
-                    
-                  </p> -->
-                    <form id="like" method="POST" action="/tweet/likee/<%= user._id %>">
-                      <div class="d-flex justify-content-end">
-                        <button id="btn-like" class="btn btn-link btn-sm text-decoration-none pt-1" type="submit">
-                          <i class="bi bi-heart fs-6 mt-4"></i>
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </a>
-              <div class="pe-4 pt-2">
-                <a id="dropdown-tweet" class="fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <i class="bi bi-three-dots"></i>
+                    </div>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-secondary p-0" aria-labelledby="dropdownMenuButton1">
-                  <li>
-                    <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
-                      <button class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
-                        type="submit">
-                        Eliminar<i class="bi bi-trash ps-1"></i>
-                      </button>
-                    </form>
-                  </li>
-                </ul>
+                <!--Button like-->
+                <div class="d-flex justify-content-end mt-3 ">
+                  <button id="likes-btn-<%= tweet.id %>" data-tweet-id="<%= tweet.id %>" onclick="postLike(this)"
+                    class="btn btn-link btn-sm text-decoration-none btn-like" type="submit">
+                    <% if(tweet.likes.includes(user._id)){ %>
+                      <i class="bi bi-heart fs-6 text-danger"></i>
+                      <% }else{ %>
+                        <i class="bi bi-heart fs-6 text-white"></i>
+                        <% } %>
+                  </button>
+                  <span id="likes-count-<%= tweet.id %>" class="text-white d-flex align-items-center">
+                    <% if(tweet.likes.length !==0){ %>
+                      <%= tweet.likes.length %>
+                        <% } %>
+                  </span>
+                </div>
               </div>
+            </div>
+
+            <div class="pe-4 pt-2">
+              <a id="dropdown-tweet" class="fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="bi bi-three-dots"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-secondary p-0" aria-labelledby="dropdownMenuButton1">
+                <li>
+                  <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
+                    <button class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
+                      type="submit">
+                      Eliminar<i class="bi bi-trash ps-1"></i>
+                    </button>
+                  </form>
+                </li>
+              </ul>
             </div>
           </article>
           <% } %>
       </div>
+
+
       <!--Side Bar Trends-->
-      <div class="side-bar-r">
-        <div class="d-flex flex-column p-3 text-white position-sticky top-0">
-
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-              aria-describedby="button-addon2">
-            <button class="btn btn-danger btn-outline-secondary text-white" type="button" id="button-addon2"><i
-                class="bi bi-search"></i></button>
-          </div>
-
-          <!-- Trends Card -->
-          <div class="trends-card position-relative">
-            <div class="d-flex flex-row justify-content-between card1-header">
-              <h3 class="text-white fs-5"><strong>
-                  Trends for you
-              </h3>
-              <button id="btn-settings" class="btn btn-link"><i class="bi bi-gear"></i></button>
-            </div>
-            <div class="d-flex flex-row justify-content-between mini-headlines ">
-              <div>
-                <p class="m-0">Politics · Trending</p>
-                <h6 class="m-0"><strong>Ukraine</strong></h6>
-                <p class="m-0">2.4M Tweets</p>
-              </div>
-              <div>
-                <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-three-dots fs-6"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="d-flex flex-row justify-content-between mini-headlines">
-              <div>
-                <p class="m-0">Politics · Trending</p>
-                <h6 class="m-0"><strong>Ukraine</strong></h6>
-                <p class="m-0">2.4M Tweets</p>
-              </div>
-              <div>
-                <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-three-dots fs-6"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="d-flex flex-row justify-content-between mini-headlines">
-              <div>
-                <p class="m-0">Politics · Trending</p>
-                <h6 class="m-0"><strong>Ukraine</strong></h6>
-                <p class="m-0">2.4M Tweets</p>
-              </div>
-              <div>
-                <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-three-dots fs-6"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="d-flex flex-row justify-content-between mini-headlines">
-              <div>
-                <p class="m-0">Politics · Trending</p>
-                <h6 class="m-0"><strong>Ukraine</strong></h6>
-                <p class="m-0">2.4M Tweets</p>
-              </div>
-              <div>
-                <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-three-dots fs-6"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="d-flex flex-row justify-content-between mini-headlines">
-              <div>
-                <p class="m-0">Politics · Trending</p>
-                <h6 class="m-0"><strong>Ukraine</strong></h6>
-                <p class="m-0">2.4M Tweets</p>
-              </div>
-              <div>
-                <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-three-dots fs-6"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="position-absolute bottom-0 mb-2"><a class="text-decoration-none text-primary ps-2 btn-vermas"
-                href="">Ver más</a></div>
-          </div>
-
-          <!-- Might Like card -->
-          <div class="mightlike-card mt-3 position-relative">
-            <div class="d-flex flex-row justify-content-between card1-header">
-              <h3 class="text-white fs-5"><strong>Who to follow</strong></h3>
-              <button id="btn-settings" class="btn btn-link"><i class="bi bi-gear"></i></button>
-            </div>
-            <% for(let topUser=0; topUser < 3; topUser++) {%>
-              <div class="d-flex flex-row justify-content-between mini-headlines">
-                <div class="d-flex flex-row align-items-center">
-                  <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
-                  <div class="d-flex flex-column mx-2 lh-1">
-                    <span class="p-0">
-                      <%= user.firstname + " " + user.lastname %>
-                    </span>
-                    <span class="p-0 text-secondary" style="font-size: small">@<%= user.username %></span>
-                  </div>
-                </div>
-                <div class="btn-follow d-flex align-items-center">
-                  <button class="btn btn-sm btn-light rounded-pill">Follow</button>
-                </div>
-              </div>
-              <% } %>
-                <div class="position-absolute bottom-0 mb-2"><a
-                    class="text-decoration-none text-primary ps-2 btn-vermas" href="">Ver más</a></div>
-          </div>
-        </div>
-      </div>
+      <%- include("partials/sideBarTrends") %>
   </div>
 
   <!--MODAL-->
