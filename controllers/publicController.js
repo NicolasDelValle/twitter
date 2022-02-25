@@ -28,19 +28,19 @@ async function showAboutUs(req, res) {
   res.render("aboutUs");
 }
 
-/* async function follow(req, res) {
+async function follow(req, res) {
   const user = await User.findById(req.params.id);
   if (!user.following.includes(req.user._id)) {
-    tweet.likes.push(req.user._id);
-    tweet.save();
+    user.following.push(req.user._id);
+    user.save();
     includesUser = true;
   } else {
-    const index = tweet.likes.indexOf(req.user._id);
-    tweet.likes.splice(index);
-    tweet.save();
+    const index = user.following.indexOf(req.user._id);
+    user.following.splice(index);
+    user.save();
   }
-  res.json({ tweet });
-} */
+  res.json({ user });
+}
 
 // Otros handlers...
 // ...
@@ -52,4 +52,5 @@ module.exports = {
   showSorry,
   showContact,
   showAboutUs,
+  follow,
 };

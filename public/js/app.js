@@ -1,5 +1,5 @@
 async function postLike() {
-  const likeBtn = document.querySelector(`#likes-btn-${likeBtn.dataset.tweetId}`);
+  const likeBtn = document.querySelector(`#likes-btn`);
   const likeCount = document.querySelector("#likes-count");
   const response = await axios.get(`/tweet/like/${likeBtn.dataset.tweetId}`);
   if (response.data.tweet.likes.length === 0) {
