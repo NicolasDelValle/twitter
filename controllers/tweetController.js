@@ -52,7 +52,7 @@ async function like(req, res) {
     tweet.likes.splice(index);
     tweet.save();
   }
-  res.redirect("/home");
+  res.json(tweet);
 }
 
 // Otros handlers...
