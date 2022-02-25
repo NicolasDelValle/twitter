@@ -2,8 +2,9 @@ const { Tweet, User } = require("../models");
 
 async function showHome(req, res) {
   const tweets = await Tweet.find().populate("user");
-  const topUsers = await User.find();
-  res.render("home", { page: "home", tweets, topUsers });
+  const [topUser] = await User.find({ username: req.user.username });
+  console.log(topUser);
+  res.render("home", { page: "home", tweets, topUser });
 }
 
 async function showExplorer(req, res) {
@@ -31,7 +32,7 @@ async function showAboutUs(req, res) {
 
 async function follow(req, res) {
   const user = await User.findById(req.params.id);
-  if (!user.following.includes(req.user._id)) {
+  if (!user.following.some(req.user._id)) {
     user.following.push(req.user._id);
     user.save();
     includesUser = true;

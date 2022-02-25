@@ -337,6 +337,7 @@ footer {
     display: flex;
     position: absolute;
     bottom: 2%;
+    width: 90%;
   }
 
   .profilepill-lg:hover {
@@ -356,4 +357,12 @@ footer {
 
 .background-img {
   object-fit: cover;
+}
+
+.label-side-bar {
+  font-size: 0.8rem;
+  font-weight: 100;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  width: 63%;
 }

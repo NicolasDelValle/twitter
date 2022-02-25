@@ -28,10 +28,10 @@
     <%- include("partials/nav") %>
 
       <!--Main Content-->
-      <div class="container main w-50 border-start border-end p-0">
+      <div class="container main w-50 border-start border-end border-secondary p-0">
         <div class="d-flex flex-column text-white">
           <img src="<%= userProfile.background %>" style="height: 199px" class="img-fluid background-img" alt="..." />
-          <div id="header" class="px-3 border-bottom pb-4">
+          <div id="header" class="px-3 border-bottom border-secondary pb-4">
             <div class="mt-2 d-flex flex-row justify-content-between">
               <div style="height: 70px; position: relative">
                 <img src="<%= userProfile.avatar %>" style="bottom: 0%; position: absolute" alt="" width="170"
@@ -62,7 +62,7 @@
           </div>
         </div>
         <% for(const tweet of userProfile.tweets) {%>
-          <article class="border-top tweets">
+          <article class="border-top tweets border-secondary">
             <div class="d-flex flex-row justify-content-between">
               <a class="text-decoration-none" href="/">
                 <div class="d-flex flex-row p-3">
@@ -79,7 +79,7 @@
                       <%= tweet.content %>
                     </a>
                     <!--Button like-->
-                    <div class="d-flex justify-content-end mt-3 ">
+                    <div class="d-flex flex-row justify-content-end mt-3">
                       <button id="likes-btn-<%= tweet.id %>" data-tweet-id="<%= tweet.id %>" onclick="postLike(this)"
                         class="btn btn-link btn-sm text-decoration-none btn-like" type="submit">
                         <% if(tweet.likes.includes(user._id)){ %>
@@ -124,9 +124,9 @@
   <!--MODAL-->
   <div class="modal fade bg-white bg-opacity-10" id="tweeteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog border-3 mt-5">
+    <div class="modal-dialog border-3 mt-5 border-secondary">
       <div class="modal-content bg-dark pb-3">
-        <div class="modal-header border-0 mb-1">
+        <div class="modal-header border-0 mb-1 border-secondary">
           <button type="button" class="btn-close btn-close-white rounded-circle" data-bs-dismiss="modal"
             aria-label="Close"></button>
         </div>
@@ -134,8 +134,8 @@
           <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle me-2" />
           <form id="tweetForm" action="/tweet" method="post" class="w-100">
             <textarea style="resize: none" rows="5" name="content"
-              class="form-control border bg-dark border-1 border-bottom tex-white" id="content" type="text"
-              placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
+              class="form-control border bg-dark border-1 border-bottom text-white border-secondary" id="content"
+              type="text" placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
             <div class="my-2">
               <button class="btn btn-register btn-form btn-danger rounded-pill rounded-2" id="submitButton"
                 type="submit">
