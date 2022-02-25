@@ -16,12 +16,9 @@ function isAuthUnlogged(req, res, next) {
   }
 }
 function isYourProfile(req, res, next) {
-  if (req.user._id === req.params.id) {
-    console.log(req.user._id);
-    console.log(req.params.id);
-    console.log("Es tu perfil");
+  if (req.user.username === req.params.username) {
+    res.end("no es tu perfil >:(");
   } else {
-    console.log("no es tu perfil");
     return next();
   }
 }
