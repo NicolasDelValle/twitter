@@ -44,15 +44,17 @@ async function destroyTweet(req, res) {
 
 async function like(req, res) {
   const tweet = await Tweet.findById(req.params.id);
+  let includesUser = false;
   if (!tweet.likes.includes(req.user._id)) {
     tweet.likes.push(req.user._id);
     tweet.save();
+    includesUser = true;
   } else {
     const index = tweet.likes.indexOf(req.user._id);
     tweet.likes.splice(index);
     tweet.save();
   }
-  res.json(tweet);
+  res.json({ tweet, includesUser });
 }
 
 // Otros handlers...

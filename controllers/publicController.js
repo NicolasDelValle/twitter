@@ -28,6 +28,20 @@ async function showAboutUs(req, res) {
   res.render("aboutUs");
 }
 
+/* async function follow(req, res) {
+  const user = await User.findById(req.params.id);
+  if (!user.following.includes(req.user._id)) {
+    tweet.likes.push(req.user._id);
+    tweet.save();
+    includesUser = true;
+  } else {
+    const index = tweet.likes.indexOf(req.user._id);
+    tweet.likes.splice(index);
+    tweet.save();
+  }
+  res.json({ tweet });
+} */
+
 // Otros handlers...
 // ...
 
