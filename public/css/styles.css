@@ -107,7 +107,12 @@ p {
   font-weight: 100;
 }
 
+.search-bar {
+  width: 60%;
+}
+
 .trends-card {
+  width: 60%;
   padding-top: 0.7rem;
   height: 31rem;
   background: #060708;
@@ -115,8 +120,9 @@ p {
 }
 
 .mightlike-card {
+  width: 60%;
   padding-top: 0.7rem;
-  height: 22rem;
+  height: 20rem;
   background: #060708;
   border-radius: 3%;
 }
@@ -331,6 +337,11 @@ footer {
     display: flex;
     position: absolute;
     bottom: 2%;
+  }
+
+  .profilepill-lg:hover {
+    background: #383f46;
+    animation-name: fade-in2;
   }
 
   .profilepill-sm {
