@@ -1,6 +1,5 @@
-async function postLike() {
-  const likeBtn = document.querySelector(`#likes-btn`);
-  const likeCount = document.querySelector("#likes-count");
+async function postLike(likeBtn) {
+  const likeCount = document.querySelector(`#likes-count-${likeBtn.dataset.tweetId}`);
   const response = await axios.get(`/tweet/like/${likeBtn.dataset.tweetId}`);
   if (response.data.tweet.likes.length === 0) {
     likeCount.textContent = "";
@@ -9,8 +8,8 @@ async function postLike() {
   }
   console.log(response);
   if (response.data.includesUser) {
-    likeBtn.innerHTML = `<i id="elCora" class="bi bi-heart-fill fs-6 text-danger"></i>`;
+    likeBtn.innerHTML = `<i class="bi bi-heart-fill fs-6 text-danger"></i>`;
   } else {
-    likeBtn.innerHTML = `<i id="elCora" class="bi bi-heart fs-6"></i>`;
+    likeBtn.innerHTML = `<i class="bi bi-heart fs-6"></i>`;
   }
 }
