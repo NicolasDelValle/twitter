@@ -120,7 +120,7 @@
           <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle me-2" />
           <form id="tweetForm" action="/tweet" method="post" class="w-100">
             <textarea style="resize: none" rows="5" name="content"
-              class="form-control border bg-dark border-1 border-bottom tex-white" id="content" type="text"
+              class="form-control border bg-dark border-1 border-bottom text-white" id="content" type="text"
               placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
             <div class="my-2">
               <button class="btn btn-register btn-form btn-danger rounded-pill rounded-2" id="submitButton"
@@ -133,6 +133,8 @@
       </div>
     </div>
   </div>
+
+
 
   <script>
     document.querySelector("#like").addEventListener("submit", async (e) => {
