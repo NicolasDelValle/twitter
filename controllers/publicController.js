@@ -2,8 +2,8 @@ const { Tweet, User } = require("../models");
 
 async function showHome(req, res) {
   const tweets = await Tweet.find().populate("user");
-  const [topUser] = await User.find({ username: req.user.username });
-  res.render("home", { page: "home", tweets, topUser });
+  const topUsers = await User.find().sort({ followers: -1 }).limit(5);
+  res.render("home", { page: "home", tweets, topUsers });
 }
 
 async function showExplorer(req, res) {
@@ -17,7 +17,8 @@ async function showProfile(req, res) {
   }).populate("tweets");
   const tweets = userProfile.tweets;
   console.log(tweets);
-  res.render("profile", { page: "profile", tweets, userProfile });
+  const topUsers = await User.find().sort({ followers: -1 }).limit(5);
+  res.render("profile", { page: "profile", tweets, userProfile, topUsers });
 }
 
 async function showSorry(req, res) {
