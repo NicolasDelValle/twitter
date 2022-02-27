@@ -103,11 +103,25 @@ p {
   z-index: 1;
 }
 
+.like-count {
+  padding: 0;
+  border-radius: 50%;
+  color: #e0e0e0;
+  height: 1.875rem;
+  width: 1.875rem;
+  z-index: 1;
+}
+
 #btn-destroy {
   font-weight: 100;
 }
 
+.search-bar {
+  width: 60%;
+}
+
 .trends-card {
+  width: 60%;
   padding-top: 0.7rem;
   height: 31rem;
   background: #060708;
@@ -115,8 +129,9 @@ p {
 }
 
 .mightlike-card {
+  width: 60%;
   padding-top: 0.7rem;
-  height: 22rem;
+  height: 20rem;
   background: #060708;
   border-radius: 3%;
 }
@@ -331,6 +346,12 @@ footer {
     display: flex;
     position: absolute;
     bottom: 2%;
+    width: 90%;
+  }
+
+  .profilepill-lg:hover {
+    background: #383f46;
+    animation-name: fade-in2;
   }
 
   .profilepill-sm {
@@ -345,4 +366,16 @@ footer {
 
 .background-img {
   object-fit: cover;
+}
+
+.label-side-bar {
+  font-size: 0.8rem;
+  font-weight: 100;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  width: 63%;
+}
+
+.profile-img {
+  border: 0.25rem solid #212529;
 }

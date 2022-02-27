@@ -100,7 +100,7 @@
       </button>
 
       <div
-        class="align-items-center justify-content-between pt-2 position-absolute bottom-3 rounded-pill w-75 profilepill-lg">
+        class="align-items-center justify-content-between position-absolute bottom-3 rounded-pill profilepill-lg pe-1">
         <a href="/profile/<%= user.username %>"
           class="d-flex align-items-center justify-content-between text-white text-decoration-none p-1">
           <div class="d-flex flex-row align-items-center">
@@ -109,13 +109,13 @@
               <span class="p-0">
                 <%= user.firstname + " " + user.lastname %>
               </span>
-              <span class="p-0 text-secondary" style="font-size: small">@<%= user.username %></span>
+              <span class="p-0 text-secondary">@<%= user.username %></span>
             </div>
           </div>
         </a>
         <a class="fs-4 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
           aria-expanded="false">
-          <i class="bi bi-three-dots-vertical"></i>
+          <i class="bi bi-three-dots fs-6 me-1"></i>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="#">Action</a></li>
@@ -124,7 +124,7 @@
         </ul>
       </div>
 
-      <div class="align-items-center justify-content-between pt-2 rounded-pill w-75 profilepill-sm">
+      <div class="align-items-center justify-content-between rounded-pill profilepill-sm">
         <a class="fs-4 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
           aria-expanded="false">
           <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />

@@ -53,16 +53,18 @@
           <article class="border-bottom border-secondary tweets">
             <div class="d-flex flex-row justify-content-between">
               <div class="d-flex flex-row p-3 w-100">
-                <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
+                <a class="text-decoration-none" href="/profile/<%= tweet.user.username %>">
+                  <img src="<%= tweet.user.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
+                </a>
                 <a class="text-decoration-none" href="/tweetPage/<%= tweet.id %>">
                   <div class="d-flex flex-column mx-2 lh-1 w-100">
                     <div class="d-flex flex-row align-items-center">
                       <a class="text-decoration-none" href="/profile/<%= tweet.user.username %>">
-                        <span class=" p-0 text-white">
+                        <span class="p-0 text-white">
                           <%= tweet.user.firstname + " " + tweet.user.lastname %>
                         </span>
                       </a>
-                      <span class="p-0 ps-1 text-secondary" style="font-size: small">@<%= tweet.user.username %>
+                      <span class="p-0 ps-1 text-secondary">@<%= tweet.user.username %>
                       </span>
                     </div>
                     <div class="content-tweet text-white">
@@ -79,7 +81,7 @@
                         <i class="bi bi-heart fs-6 text-white"></i>
                         <% } %>
                   </button>
-                  <span id="likes-count-<%= tweet.id %>" class="text-white d-flex align-items-center">
+                  <span id="likes-count-<%= tweet.id %>" class="d-flex align-items-center like-count">
                     <% if(tweet.likes.length !==0){ %>
                       <%= tweet.likes.length %>
                         <% } %>
@@ -111,6 +113,7 @@
 
       <!--Side Bar Trends-->
       <%- include("partials/sideBarTrends") %>
+
   </div>
 
   <!--MODAL-->

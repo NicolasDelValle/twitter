@@ -1,8 +1,9 @@
 <div class="side-bar-r">
   <div class="d-flex flex-column p-3 text-white position-fixed trends-container">
 
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+    <div class="input-group mb-3 search-bar">
+      <input type="text" class="form-control bg-dark" placeholder="Search" aria-label="Search"
+        aria-describedby="button-addon2">
       <button class="btn btn-danger btn-outline-secondary text-white" type="button" id="button-addon2"><i
           class="bi bi-search"></i></button>
     </div>
@@ -10,8 +11,8 @@
     <!-- Trends Card -->
     <div class="trends-card position-relative">
       <div class="d-flex flex-row justify-content-between card1-header">
-        <h3 class="text-white fs-5"><strong>
-            Trends for you
+        <h3 class="text-white fs-5">
+          <strong>Trends for you</strong>
         </h3>
         <button id="btn-settings" class="btn btn-link"><i class="bi bi-gear"></i></button>
       </div>
@@ -35,8 +36,8 @@
       <div class="d-flex flex-row justify-content-between mini-headlines">
         <div>
           <p class="m-0">Politics · Trending</p>
-          <h6 class="m-0"><strong>Ukraine</strong></h6>
-          <p class="m-0">2.4M Tweets</p>
+          <h6 class="m-0"><strong>Kiev</strong></h6>
+          <p class="m-0">1.11M Tweets</p>
         </div>
         <div>
           <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
@@ -52,8 +53,25 @@
       <div class="d-flex flex-row justify-content-between mini-headlines">
         <div>
           <p class="m-0">Politics · Trending</p>
-          <h6 class="m-0"><strong>Ukraine</strong></h6>
-          <p class="m-0">2.4M Tweets</p>
+          <h6 class="m-0"><strong>Putin</strong></h6>
+          <p class="m-0">Trending with <a class="text-decoration-none" href="/sorry">Vladimir</a></p>
+        </div>
+        <div>
+          <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-three-dots fs-6"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-between mini-headlines">
+        <div>
+          <p class="m-0">Trending in Uruguay</p>
+          <h6 class="m-0"><strong>Chernobyl</strong></h6>
+          <p class="m-0">224K Tweets</p>
         </div>
         <div>
           <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
@@ -69,25 +87,8 @@
       <div class="d-flex flex-row justify-content-between mini-headlines">
         <div>
           <p class="m-0">Politics · Trending</p>
-          <h6 class="m-0"><strong>Ukraine</strong></h6>
-          <p class="m-0">2.4M Tweets</p>
-        </div>
-        <div>
-          <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <i class="bi bi-three-dots fs-6"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="d-flex flex-row justify-content-between mini-headlines">
-        <div>
-          <p class="m-0">Politics · Trending</p>
-          <h6 class="m-0"><strong>Ukraine</strong></h6>
-          <p class="m-0">2.4M Tweets</p>
+          <h6 class="m-0"><strong>#TerceraGuerraMundial</strong></h6>
+          <p class="m-0">126K Tweets</p>
         </div>
         <div>
           <a id="dropdown-toggle" class="text-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
@@ -118,7 +119,7 @@
               <span class="p-0">
                 <%= user.firstname + " " + user.lastname %>
               </span>
-              <span class="p-0 text-secondary" style="font-size: small">@<%= user.username %></span>
+              <span class="p-0 text-secondary">@<%= user.username %></span>
             </div>
           </div>
           <div class="btn-follow d-flex align-items-center">
@@ -128,6 +129,15 @@
         <% } %>
           <div class="position-absolute bottom-0 mb-2"><a class="text-decoration-none text-primary ps-2 btn-vermas"
               href="/sorry">Ver más</a></div>
+    </div>
+    <div class="label-side-bar">
+      <p>Terms of Service
+        Privacy Policy
+        Cookie Policy
+        Accessibility
+        Ads info
+        More
+        © 2022 Twitter, Inc.</p>
     </div>
   </div>
 </div>
