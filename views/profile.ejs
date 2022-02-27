@@ -1,45 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!--Iconos-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <!-- GoogleFonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Tw%tt#r</title>
+  </head>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-  <!--Iconos-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
-  <!-- GoogleFonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap"
-    rel="stylesheet" />
-  <!-- Local CSS -->
-  <link rel="stylesheet" href="/css/styles.css" />
-  <title>Tw%tt#r</title>
-</head>
-
-<body class="bg-dark">
-  <div class="container d-flex flex-row justify-content-center bd-highlight p-0 h-100">
-    <!--ACA IRIA LA PARTE DEL LAO-->
-    <%- include("partials/nav") %>
+  <body class="bg-dark">
+    <div class="container d-flex flex-row justify-content-center bd-highlight p-0 h-100">
+      <!--ACA IRIA LA PARTE DEL LAO-->
+      <%- include("partials/nav") %>
 
       <!--Main Content-->
       <div class="container main w-50 border-start border-end p-0">
         <div class="d-flex flex-column text-white">
-          <img src="<%= userProfile.background %>" style="height: 199px" class="img-fluid background-img" alt="..." />
+          <img
+            src="<%= userProfile.background %>"
+            style="height: 199px"
+            class="img-fluid background-img"
+            alt="..."
+          />
           <div id="header" class="px-3 border-bottom pb-4">
             <div class="mt-2 d-flex flex-row justify-content-between">
               <div style="height: 70px; position: relative">
-                <img src="<%= userProfile.avatar %>" style="bottom: 0%; position: absolute" alt="" width="170"
-                  height="170" class="rounded-circle" />
+                <img
+                  src="<%= userProfile.avatar %>"
+                  style="bottom: 0%; position: absolute"
+                  alt=""
+                  width="170"
+                  height="170"
+                  class="rounded-circle"
+                />
               </div>
               <div>
-                <button type="button" style="width: 130px; height: 32px"
-                  class="btn btn-outline-primary rounded-pill fs-6 text-nowrap p-1">
+                <button
+                  type="button"
+                  style="width: 130px; height: 32px"
+                  class="btn btn-outline-primary rounded-pill fs-6 text-nowrap p-1"
+                >
                   Seguir
                 </button>
               </div>
@@ -49,114 +70,192 @@
                 <%= userProfile.firstname + " " + userProfile.lastname %>
               </span>
               <span class="fs-6 fw-light text-secondary lh-1">@<%= userProfile.username %></span>
-              <span class="fs-6 fw-light my-3">
-                <%= user.bio %>
-              </span>
+              <span class="fs-6 fw-light my-3"> <%= userProfile.bio %> </span>
               <div class="text-decoration-none">
-                <a href="" class="text-decoration-none"><span class="text-white">123</span>
-                  <span class="fw-light text-secondary">Siguiendo</span></a>
-                <a href="" class="text-decoration-none"><span class="text-white">155</span>
-                  <span class="fw-light text-secondary">Seguidores</span></a>
+                <a href="" class="text-decoration-none"
+                  ><span class="text-white">123</span>
+                  <span class="fw-light text-secondary">Siguiendo</span></a
+                >
+                <a href="" class="text-decoration-none"
+                  ><span class="text-white">155</span>
+                  <span class="fw-light text-secondary">Seguidores</span></a
+                >
               </div>
             </div>
           </div>
         </div>
-        <% for(const tweet of userProfile.tweets) {%>
-          <article class="border-top tweets">
-            <div class="d-flex flex-row justify-content-between">
-              <a class="text-decoration-none" href="/">
-                <div class="d-flex flex-row p-3">
-                  <img src="<%= userProfile.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
-                  <div class="d-flex flex-column mx-2 lh-1">
-                    <div class="d-flex flex-row align-items-center">
-                      <span class="p-0 text-white">
-                        <%= userProfile.firstname + " " + userProfile.lastname %>
-                      </span>
-                      <span class="p-0 ps-1 text-secondary" style="font-size: small">@<%= userProfile.username %>
-                      </span>
-                    </div>
-                    <a class="text-decoration-none text-white" href="/tweetPage/<%= tweet.id %> ">
-                      <%= tweet.content %>
-                    </a>
-                    <!--Button like-->
-                    <div class="d-flex justify-content-end mt-3 ">
-                      <button id="likes-btn-<%= tweet.id %>" data-tweet-id="<%= tweet.id %>" onclick="postLike(this)"
-                        class="btn btn-link btn-sm text-decoration-none btn-like" type="submit">
-                        <% if(tweet.likes.includes(user._id)){ %>
-                          <i class="bi bi-heart fs-6 text-danger"></i>
-                          <% }else{ %>
-                            <i class="bi bi-heart fs-6 text-white"></i>
-                            <% } %>
-                      </button>
-                      <span id="likes-count-<%= tweet.id %>" class="text-white d-flex align-items-center">
-                        <% if(tweet.likes.length !==0){ %>
-                          <%= tweet.likes.length %>
-                            <% } %>
-                      </span>
-                    </div>
+        <% for(const tweet of tweets) {%>
+        <article class="border-top tweets">
+          <div class="d-flex flex-row justify-content-between">
+            <a class="text-decoration-none" href="/">
+              <div class="d-flex flex-row p-3">
+                <img
+                  src="<%= userProfile.avatar %>"
+                  alt=""
+                  width="50"
+                  height="50"
+                  class="rounded-circle"
+                />
+                <div class="d-flex flex-column mx-2 lh-1">
+                  <div class="d-flex flex-row align-items-center">
+                    <span class="p-0 text-white">
+                      <%= userProfile.firstname + " " + userProfile.lastname %>
+                    </span>
+                    <span class="p-0 ps-1 text-secondary" style="font-size: small"
+                      >@<%= userProfile.username %>
+                    </span>
                   </div>
+                  <a class="text-decoration-none text-white" href="/tweetPage/<%= tweet.id %> ">
+                    <%= tweet.content %>
+                  </a>
+                  <!--Button like-->
+                  <% if(user){ %>
+                  <div class="d-flex justify-content-end mt-3">
+                    <button
+                      id="likes-btn-<%= tweet.id %>"
+                      data-tweet-id="<%= tweet.id %>"
+                      onclick="postLike(this)"
+                      class="btn btn-link btn-sm text-decoration-none btn-like"
+                      type="submit"
+                    >
+                      <% if(tweet.likes.includes(user._id)){ %>
+                      <i class="bi bi-heart-fill fs-6 text-danger"></i>
+                      <% }else{ %>
+                      <i class="bi bi-heart fs-6 text-white"></i>
+                      <% } %>
+                    </button>
+                    <span
+                      id="likes-count-<%= tweet.id %>"
+                      class="text-white d-flex align-items-center"
+                    >
+                      <% if(tweet.likes.length !==0){ %> <%= tweet.likes.length %> <% } %>
+                    </span>
+                  </div>
+                  <% }else{ %>
+                  <div class="d-flex justify-content-end mt-3">
+                    <button
+                      id="likes-btn-<%= tweet.id %>"
+                      data-tweet-id="<%= tweet.id %>"
+                      onclick="postLike(this)"
+                      class="btn btn-link btn-sm text-decoration-none btn-like"
+                      type="submit"
+                    >
+                      <i class="bi bi-heart fs-6 text-white"></i>
+                    </button>
+                    <span
+                      id="likes-count-<%= tweet.id %>"
+                      class="text-white d-flex align-items-center"
+                    >
+                      <% if(tweet.likes.length !==0){ %> <%= tweet.likes.length %> <% } %>
+                    </span>
+                  </div>
+
+                  <% } %>
                 </div>
-              </a>
-              <div class="pe-4 pt-2">
-                <a id="dropdown-tweet" class="fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <i class="bi bi-three-dots"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-secondary p-0" aria-labelledby="dropdownMenuButton1">
-                  <li>
-                    <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
-                      <button class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
-                        type="submit">
-                        Eliminar<i class="bi bi-trash ps-1"></i>
-                      </button>
-                    </form>
-                  </li>
-                </ul>
               </div>
+            </a>
+            <div class="pe-4 pt-2">
+              <a
+                id="dropdown-tweet"
+                class="fs-5"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-three-dots"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-secondary p-0"
+                aria-labelledby="dropdownMenuButton1"
+              >
+                <li>
+                  <form
+                    id="btn"
+                    class="btn"
+                    method="POST"
+                    action="/tweet/<%= tweet._id %>?_method=DELETE"
+                  >
+                    <button
+                      class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
+                      type="submit"
+                    >
+                      Eliminar<i class="bi bi-trash ps-1"></i>
+                    </button>
+                  </form>
+                </li>
+              </ul>
             </div>
-          </article>
-          <% } %>
+          </div>
+        </article>
+        <% } %>
       </div>
       <!--Side Bar Trends-->
-      <%- include("partials/sideBarTrends") %>
-  </div>
+      <!-- %- include("partials/sideBarTrends") %>-->
+    </div>
 
-  <!--MODAL-->
-  <div class="modal fade bg-white bg-opacity-10" id="tweeteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog border-3 mt-5">
-      <div class="modal-content bg-dark pb-3">
-        <div class="modal-header border-0 mb-1">
-          <button type="button" class="btn-close btn-close-white rounded-circle" data-bs-dismiss="modal"
-            aria-label="Close"></button>
-        </div>
-        <div class="px-3 d-flex flex-row">
-          <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle me-2" />
-          <form id="tweetForm" action="/tweet" method="post" class="w-100">
-            <textarea style="resize: none" rows="5" name="content"
-              class="form-control border bg-dark border-1 border-bottom tex-white" id="content" type="text"
-              placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
-            <div class="my-2">
-              <button class="btn btn-register btn-form btn-danger rounded-pill rounded-2" id="submitButton"
-                type="submit">
-                Tweet
-              </button>
-            </div>
-          </form>
+    <!--MODAL-->
+    <% if(user){ %>
+    <div
+      class="modal fade bg-white bg-opacity-10"
+      id="tweeteModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog border-3 mt-5">
+        <div class="modal-content bg-dark pb-3">
+          <div class="modal-header border-0 mb-1">
+            <button
+              type="button"
+              class="btn-close btn-close-white rounded-circle"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="px-3 d-flex flex-row">
+            <img
+              src="<%= user.avatar %>"
+              alt=""
+              width="50"
+              height="50"
+              class="rounded-circle me-2"
+            />
+            <form id="tweetForm" action="/tweet" method="post" class="w-100">
+              <textarea
+                style="resize: none"
+                rows="5"
+                name="content"
+                class="form-control border bg-dark border-1 border-bottom tex-white"
+                id="content"
+                type="text"
+                placeholder="Que estás pensando?"
+                data-sb-validations="required"
+              ></textarea>
+              <div class="my-2">
+                <button
+                  class="btn btn-register btn-form btn-danger rounded-pill rounded-2"
+                  id="submitButton"
+                  type="submit"
+                >
+                  Tweet
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-
-  <!--Axios cdn-->
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <!--Bootstrap-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-  <!--Own script-->
-  <script src="/js/app.js"></script>
-</body>
-
+    <% } %>
+    <!--Axios cdn-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--Bootstrap-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <!--Own script-->
+    <script src="/js/app.js"></script>
+  </body>
 </html>
