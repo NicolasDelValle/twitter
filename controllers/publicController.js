@@ -16,7 +16,6 @@ async function showProfile(req, res) {
     username: req.params.username,
   }).populate("tweets");
   const tweets = userProfile.tweets;
-  console.log(tweets);
   const topUsers = await User.find().sort({ followers: -1 }).limit(5);
   res.render("profile", { page: "profile", tweets, userProfile, topUsers });
 }
