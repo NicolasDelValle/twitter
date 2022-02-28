@@ -12,11 +12,12 @@ async function showExplorer(req, res) {
 }
 
 async function showProfile(req, res) {
-  const [userProfile] = await User.find({
+  const userProfile = await User.find({
     username: req.params.username,
   }).populate("tweets");
   const tweets = userProfile.tweets;
   const topUsers = await User.find().sort({ followers: -1 }).limit(5);
+
   res.render("profile", { page: "profile", tweets, userProfile, topUsers });
 }
 

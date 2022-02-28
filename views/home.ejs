@@ -109,39 +109,64 @@
           </article>
           <% } %>
       </div>
-
-
       <!--Side Bar Trends-->
       <%- include("partials/sideBarTrends") %>
 
   </div>
 
-  <!--MODAL-->
-  <div class="modal fade bg-white bg-opacity-10" id="tweeteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog border-3 mt-5">
-      <div class="modal-content bg-dark pb-3">
-        <div class="modal-header border-0 mb-1">
-          <button type="button" class="btn-close btn-close-white rounded-circle" data-bs-dismiss="modal"
-            aria-label="Close"></button>
-        </div>
-        <div class="px-3 d-flex flex-row">
-          <img src="<%= user.avatar %>" alt="" width="50" height="50" class="rounded-circle me-2" />
-          <form id="tweetForm" action="/tweet" method="post" class="w-100">
-            <textarea style="resize: none" rows="5" name="content"
-              class="form-control border bg-dark border-1 border-bottom tex-white" id="content" type="text"
-              placeholder="Que estás pensando?" data-sb-validations="required"></textarea>
-            <div class="my-2">
-              <button class="btn btn-register btn-form btn-danger rounded-pill rounded-2" id="submitButton"
-                type="submit">
-                Tweet
-              </button>
-            </div>
-          </form>
+    <!--MODAL-->
+    <% if(user){ %>
+    <div
+      class="modal fade bg-white bg-opacity-10"
+      id="tweeteModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog border-3 mt-5">
+        <div class="modal-content bg-dark pb-3">
+          <div class="modal-header border-0 mb-1">
+            <button
+              type="button"
+              class="btn-close btn-close-white rounded-circle"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="px-3 d-flex flex-row">
+            <img
+              src="<%= user.avatar %>"
+              alt=""
+              width="50"
+              height="50"
+              class="rounded-circle me-2"
+            />
+            <form id="tweetForm" action="/tweet" method="post" class="w-100">
+              <textarea
+                style="resize: none"
+                rows="5"
+                name="content"
+                class="form-control border bg-dark border-1 border-bottom tex-white"
+                id="content"
+                type="text"
+                placeholder="Que estás pensando?"
+                data-sb-validations="required"
+              ></textarea>
+              <div class="my-2">
+                <button
+                  class="btn btn-register btn-form btn-danger rounded-pill rounded-2"
+                  id="submitButton"
+                  type="submit"
+                >
+                  Tweet
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <% } %>
   <!--Axios cdn-->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <!--Boostrap-->

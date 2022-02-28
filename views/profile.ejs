@@ -84,13 +84,13 @@
             </div>
           </div>
         </div>
-        <% for(const tweet of tweets) {%>
+        <% for(const tweet of tweets) { console.log(tweet)%>
         <article class="border-top tweets">
           <div class="d-flex flex-row justify-content-between">
             <a class="text-decoration-none" href="/">
               <div class="d-flex flex-row p-3">
                 <img
-                  src="<%= userProfile.avatar %>"
+                  src="<%= tweet.user.avatar %>"
                   alt=""
                   width="50"
                   height="50"
