@@ -12,13 +12,11 @@ async function showExplorer(req, res) {
 }
 
 async function showProfile(req, res) {
-  const userProfile = await User.find({
+  const userProfile = await User.findOne({
     username: req.params.username,
   }).populate("tweets");
-  const tweets = userProfile.tweets;
   const topUsers = await User.find().sort({ followers: -1 }).limit(5);
-
-  res.render("profile", { page: "profile", tweets, userProfile, topUsers });
+  res.render("profile", { page: "profile", userProfile, topUsers });
 }
 
 async function showSorry(req, res) {
@@ -34,17 +32,17 @@ async function showAboutUs(req, res) {
 }
 
 async function follow(req, res) {
-  const user = await User.findById(req.params.id);
-  if (!user.following.some(req.user._id)) {
-    user.following.push(req.user._id);
-    user.save();
-    includesUser = true;
+  const followed = await User.findById(req.params.id);
+  if (followed.followers.includes(req.user._id)) {
+    const index = followed.followers.indexOf(req.user._id);
+    followed.followers.splice(index);
+    followed.save();
   } else {
-    const index = user.following.indexOf(req.user._id);
-    user.following.splice(index);
-    user.save();
+    followed.followers.push(req.user._id);
+    followed.save();
   }
-  res.json({ user });
+  console.log(followed.followers);
+  res.json(followed);
 }
 
 // Otros handlers...

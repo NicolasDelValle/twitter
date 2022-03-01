@@ -13,6 +13,6 @@ publicRouter.get("/home", isAuthLogged, showHome);
 publicRouter.get("/explorer", showExplorer);
 publicRouter.get("/profile/:username", showProfile);
 publicRouter.get("/sorry", showSorry);
-publicRouter.get("/follow", isAuthLogged, isYourProfile, follow);
+publicRouter.get("/follow/:id", isAuthLogged, isYourProfile, follow);
 
 module.exports = publicRouter;

@@ -73,7 +73,7 @@
                 </a>
                 <!--Button like-->
                 <div class="d-flex justify-content-end mt-3 ">
-                  <button id="likes-btn-<%= tweet.id %>" data-tweet-id="<%= tweet.id %>" onclick="postLike(this)"
+                  <button id="likes-btn-<%= tweet.id %>" data-tweet-id="<%= tweet.id %>" onclick="like(this)"
                     class="btn btn-link btn-sm text-decoration-none btn-like" type="submit">
                     <% if(tweet.likes.includes(user._id)){ %>
                       <i class="bi bi-heart-fill fs-6 text-danger"></i>

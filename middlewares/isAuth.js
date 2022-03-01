@@ -16,10 +16,11 @@ function isAuthUnlogged(req, res, next) {
   }
 }
 function isYourProfile(req, res, next) {
-  if (req.user.username === req.params.username) {
-    res.end("no es tu perfil >:(");
+  console.log(req.user._id + " otro mas " + req.params.id);
+  if (req.user._id == req.params.id) {
+    return res.sendStatus(401);
   } else {
-    return next();
+    next();
   }
 }
 module.exports = { isAuthLogged, isAuthUnlogged, isYourProfile };
