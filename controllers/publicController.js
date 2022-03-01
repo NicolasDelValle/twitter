@@ -3,6 +3,7 @@ const { Tweet, User } = require("../models");
 async function showHome(req, res) {
   const tweets = await Tweet.find().populate("user");
   const topUsers = await User.find().sort({ followers: -1 }).limit(5);
+  console.log(tweets);
   res.render("home", { page: "home", tweets, topUsers });
 }
 

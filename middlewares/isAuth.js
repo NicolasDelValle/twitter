@@ -16,7 +16,6 @@ function isAuthUnlogged(req, res, next) {
   }
 }
 function isYourProfile(req, res, next) {
-  console.log(req.user._id + " otro mas " + req.params.id);
   if (req.user._id == req.params.id) {
     return res.sendStatus(401);
   } else {

@@ -1,0 +1,85 @@
+<% for(const tweet of userProfile.tweets) {%>
+<article class="border-top tweets">
+  <div class="d-flex flex-row justify-content-between">
+    <a class="text-decoration-none" href="/">
+      <div class="d-flex flex-row p-3">
+        <img src="<%= userProfile.avatar %>" alt="" width="50" height="50" class="rounded-circle" />
+        <div class="d-flex flex-column mx-2 lh-1">
+          <div class="d-flex flex-row align-items-center">
+            <span class="p-0 text-white">
+              <%= userProfile.firstname + " " + userProfile.lastname %>
+            </span>
+            <span class="p-0 ps-1 text-secondary" style="font-size: small"
+              >@<%= userProfile.username %>
+            </span>
+          </div>
+          <a class="text-decoration-none text-white" href="/tweetPage/<%= tweet.id %> ">
+            <%= tweet.content %>
+          </a>
+          <!--Button like-->
+          <% if(user){ %>
+          <div class="d-flex justify-content-end mt-3">
+            <button
+              id="likes-btn-<%= tweet.id %>"
+              data-tweet-id="<%= tweet.id %>"
+              onclick="like(this)"
+              class="btn btn-link btn-sm text-decoration-none btn-like"
+              type="submit"
+            >
+              <% if(tweet.likes.includes(user._id)){ %>
+              <i class="bi bi-heart-fill fs-6 text-danger"></i>
+              <% }else{ %>
+              <i class="bi bi-heart fs-6 text-white"></i>
+              <% } %>
+            </button>
+            <span id="likes-count-<%= tweet.id %>" class="text-white d-flex align-items-center">
+              <% if(tweet.likes.length !==0){ %> <%= tweet.likes.length %> <% } %>
+            </span>
+          </div>
+          <% }else{ %>
+          <div class="d-flex justify-content-end mt-3">
+            <button
+              id="likes-btn-<%= tweet.id %>"
+              data-tweet-id="<%= tweet.id %>"
+              onclick="postLike(this)"
+              class="btn btn-link btn-sm text-decoration-none btn-like"
+              type="submit"
+            >
+              <i class="bi bi-heart fs-6 text-white"></i>
+            </button>
+            <span id="likes-count-<%= tweet.id %>" class="text-white d-flex align-items-center">
+              <% if(tweet.likes.length !==0){ %> <%= tweet.likes.length %> <% } %>
+            </span>
+          </div>
+
+          <% } %>
+        </div>
+      </div>
+    </a>
+    <div class="pe-4 pt-2">
+      <a
+        id="dropdown-tweet"
+        class="fs-5"
+        type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="bi bi-three-dots"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-secondary p-0" aria-labelledby="dropdownMenuButton1">
+        <li>
+          <form id="btn" class="btn" method="POST" action="/tweet/<%= tweet._id %>?_method=DELETE">
+            <button
+              class="btn btn-link btn-destroy btn-sm text-decoration-none text-danger ms-3 fs-6"
+              type="submit"
+            >
+              Eliminar<i class="bi bi-trash ps-1"></i>
+            </button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+</article>
+<% } %>
